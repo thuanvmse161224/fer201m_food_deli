@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Navigate, Route, Routes } from "react-router-dom";
+import HomeSale from "./components/HomeSale/HomeSale";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
                     element={<Navigate to="/" replace />}
                 />
             </Routes>
+            <HomeSale/>
             <Footer />
         </>
     );
