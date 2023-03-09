@@ -10,7 +10,7 @@ export default function Hero() {
             id="about-hero"
             sx={{
                 width: "100%",
-                height: "500px",
+                height: {xs: "300px",md: "450px"},
                 backgroundImage: `url('${hero}')`,
                 backgroundAttachment: "fixed",
                 backgroundRepeat: "no-repeat",
@@ -22,7 +22,7 @@ export default function Hero() {
             <Box
                 sx={{
                     padding: "30px",
-                    width: "40%",
+                    width: {xs:"70%", md:"40%"},
                     height: "350px",
                     display: "flex",
                     justifyContent: "center",
@@ -54,7 +54,7 @@ export default function Hero() {
                 <Button
                     variant="contained"
                     sx={{
-                        background: green,
+                        background: "#11a511",
                         fontSize: "12px",
                     }}
                 >
