@@ -34,6 +34,7 @@ export default function Introduction () {
                             color: "#00ff00",
                             fontSize: "40px",
                             fontWeight: "450",
+                            textAlign: "center"
                         }}
                     >
                         Some bla bla bla header 
@@ -52,7 +53,7 @@ export default function Introduction () {
                     container item sm={12}
                     sx={{paddingLeft: "10%", paddingRight: "10%"}}
                 >
-                    <Grid item sm={6} xs={12}
+                    <Grid item md={6} sm={12}
                         sx = {{
                             display: "flex",
                             flexDirection: "column",
@@ -86,7 +87,7 @@ export default function Introduction () {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a dapibus enim, vitae congue urna. Nunc vel sem quis lacus scelerisque aliquam non sed nunc.
                         </Typography>
                     </Grid>
-                    <Grid item sm={6} xs={12}
+                    <Grid item md={6} sm={12}
                         sx = {{
                             display: "flex",
                             flexDirection: "column",
