@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Navigate, Route, Routes } from "react-router-dom";
+import Contact from "./components/Contact/Contact";
 
 function App() {
     const [count, setCount] = useState(0);
@@ -10,7 +11,8 @@ function App() {
         <>
             <Header />
             <Routes>
-                <Route path="/" element={<div><p>Hello World</p></div>} /> {/*Thay đổi element tùy ý*/}
+                <Route path="/" element={<Contact />} /> {/*Thay đổi element tùy ý*/}
+                <Route path="/contact" element={<Contact />} />
                 <Route
                     path="*"
                     element={<Navigate to="/" replace />}
