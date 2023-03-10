@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { Navigate, Route, Routes } from "react-router-dom";
+import HomeSale from "./components/HomeSale/HomeSale";
 import { height } from "@mui/system";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                     element={<Navigate to="/" replace />}
                 />
             </Routes>
+            <HomeSale/>
             <Footer />
         </>
     );
