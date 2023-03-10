@@ -7,7 +7,7 @@ import instaIcon from '../Header/assets/fonts/logo-instagram.svg';
 import twitterIcon from '../Header/assets/fonts/logo-twitter.svg';
 import appStoreLogo from '../Header/assets/fonts/logo-appstore.svg';
 import playStoreLogo from '../Header/assets/fonts/logo-playstore.svg';
-
+import { Grid } from '@mui/material';
 
 
 export default function Footer() {
