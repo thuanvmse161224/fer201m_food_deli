@@ -190,7 +190,7 @@ const Contact = () => {
     }
 
     return (
-        <section className="contact-page">
+        <section id="contact-page">
             <div id="bg-img-contact">
                 <h1>Contact US</h1>
             </div>
