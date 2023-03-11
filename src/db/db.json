@@ -1,0 +1,46 @@
+{
+    "Food": [
+        {
+            "name": "a",
+            "location": "OBJECT!!!!",
+            "foodType": "f",
+            "stars": "f",
+            "distance": "f",
+            "coupon": "z"
+        }
+    ],
+    "Categories": [
+        {
+            "name": "a",
+            "id": 1
+        },
+        {
+            "name": "a",
+            "id": 1
+        },
+        {
+            "name": "a",
+            "id": 1
+        },
+        {
+            "name": "a",
+            "id": 1
+        },
+        {
+            "name": "a",
+            "id": 1
+        },
+        {
+            "name": "a",
+            "id": 1
+        },
+        {
+            "name": "a",
+            "id": 1
+        },
+        {
+            "name": "a",
+            "id": 1
+        }
+    ]
+}
