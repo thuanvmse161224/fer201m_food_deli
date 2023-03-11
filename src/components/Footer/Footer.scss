@@ -1,0 +1,73 @@
+.footer-container {
+    background-color: #55b250;
+    padding: 20px 6rem;
+
+    .footer-logo-page {
+        width: 24rem;
+    }
+
+    .footer-navigations {
+        display: flex;
+        margin-bottom: 24px;
+
+        .navigation-block {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+
+            .nav-links {
+                width: fit-content;
+                text-decoration: none;
+                color: white;
+                margin: 10px 0;
+                font-weight: 500;
+            }
+
+            .links-social-media {
+                width: 32px;
+                color: white;
+                filter: invert(1);
+                margin: 0 1rem;
+            }
+        }
+
+        .navigation-block:last-child {
+            flex-direction: row !important;
+        }
+    }
+
+    .footer-below {
+        padding: 24px 0 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.3);
+
+        .logo-app-download img {
+            padding-right: 10px;
+        }
+
+        .term-and-copyright {
+            font-size: 1.2rem;
+
+            span {
+                color: white;
+                margin-right: 2rem;
+            }
+
+            .copyright-item {
+                text-decoration: none;
+                color: white;
+                margin-left: 2rem;
+            }
+        }
+    }
+}
+
+.footer-title::after {
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+    margin: 24px 0;
+}
