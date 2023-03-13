@@ -6,7 +6,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import HomeSale from "./components/HomeSale/HomeSale";
 import { height } from "@mui/system";
 import Contact from "./components/Contact/Contact";
-
+import CategoryPage from "./components/CategoriesPage/CategoryPage";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -26,7 +26,7 @@ function App() {
         <Route path="/" element={<Contact />} /> {/*Thay đổi element tùy ý*/}
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" replace />} />
-        <Route path="/catePage" element={<CategoryPage />} />
+        <Route path="/catePage/:cateName" element={<CategoryPage />} />
       </Routes>
       <HomeSale />
       <Footer />
