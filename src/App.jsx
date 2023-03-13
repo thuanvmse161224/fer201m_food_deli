@@ -7,26 +7,28 @@ import HomeSale from "./components/HomeSale/HomeSale";
 import { height } from "@mui/system";
 import Contact from "./components/Contact/Contact";
 import CategoryPage from "./components/CategoriesPage/CategoryPage";
+import HeaderFixed from "./components/Header/HeaderFixed";
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
+      <HeaderFixed />
       <Header />
       <Routes>
         <Route
           path="/"
           element={
-            <div style={{ height: "1000px" }}>
+            <div>
               <p></p>
             </div>
           }
         />
         {/* Thay đổi element tùy ý */}
-        <Route path="/" element={<Contact />} /> {/*Thay đổi element tùy ý*/}
         <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
         <Route path="/catePage/:cateName" element={<CategoryPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <HomeSale />
       <Footer />
