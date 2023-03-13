@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { data } from './FoodList'
-import './HomeMenu.scss';
+import { data } from '../HomeMenu/FoodList'
+import "../HomeMenu/HomeMenu.scss"
 export default function HomeMenu() {
 
     const [homemenu, setHomeMenu] = useState([])
