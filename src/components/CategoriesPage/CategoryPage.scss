@@ -2,32 +2,32 @@
   .Category-body {
     margin: 0 auto;
     max-width: 1280px;
-
+    padding-top: 100px;
     .Category-header {
       .css-1vbc0rj-MuiInputBase-input-MuiFilledInput-input {
         padding-top: 8px;
+        position: relative;
       }
     }
 
-    .Category-divider {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      height: 1px;
-      background-color: #000;
+   
+    .Category-link{
+      margin-top: 2rem;
+      border-top: 2px solid;
+      padding-top: 2rem;
     }
     .Category-Title {
       span {
         color: #00b14f;
       }
-      margin: 48px 0;
+      margin: 70px 0;
     }
     .Category-content {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 20px; /* khoảng cách giữa các grid */
       grid-row-gap: 20px; /* khoảng cách giữa các hàng của grid */
+      padding-bottom: 10rem;
 
       .HomeSale-Card {
         padding: 0 12px 24px;
