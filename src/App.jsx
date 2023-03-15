@@ -8,6 +8,7 @@ import { height } from "@mui/system";
 import Contact from "./components/Contact/Contact";
 import CategoryPage from "./components/CategoriesPage/CategoryPage";
 import HeaderFixed from "./components/Header/HeaderFixed";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,6 +32,7 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <HomeSale />
+      <Cart />
       <Footer />
     </>
   );
