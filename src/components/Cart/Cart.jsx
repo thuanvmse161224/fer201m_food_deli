@@ -279,26 +279,51 @@ export default function Cart() {
                                 </div>
 
                                 <div className="add-to-cart-block" style={{ width: '100%' }}>
-                                    <Box sx={{ '& button': { m: 1 }, '&:hover': {
-                                                    filter: 'brightness(1.2)',
-                                                    cursor: 'pointer',
-                                                },  }}>
-                                        <Button className="add-to-cart-btn"
-                                            style={{
-                                                width: '100%',
-                                                margin: '0 !important',
-                                                height: '50px',
-                                                borderRadius: '10px',
-                                                backgroundColor: '#1ebd60',
-                                                color: 'white',
-                                                fontSize: '1.8rem',
-                                                fontWeight: '600',
-                                                border: 'none',
-                                                                                              
-                                            }} variant="contained" size="large">
-                                            Add to cart
-                                        </Button>
-                                    </Box>
+                                    {quantity > 0 ? (
+                                        <Box sx={{
+                                            '& button': { m: 1 }, '&:hover': {
+                                                filter: 'brightness(1.2)',
+                                                cursor: 'pointer',
+                                            },
+                                        }}>
+                                            <Button className="add-to-cart-btn"
+                                                style={{
+                                                    width: '100%',
+                                                    margin: '0 !important',
+                                                    height: '50px',
+                                                    borderRadius: '10px',
+                                                    backgroundColor: '#1ebd60',
+                                                    color: 'white',
+                                                    fontSize: '1.8rem',
+                                                    fontWeight: '600',
+                                                    border: 'none',
+
+                                                }} variant="contained" size="large">
+                                                Add to cart
+                                            </Button>
+                                        </Box>
+                                    ) : (
+                                        <Box sx={{ '& button': { m: 1 } }}>
+                                            <Button
+                                                className="cancel-btn"
+                                                style={{
+                                                    width: '100%',
+                                                    margin: '0 !important',
+                                                    height: '50px',
+                                                    borderRadius: '10px',
+                                                    backgroundColor: 'red',
+                                                    color: 'white',
+                                                    fontSize: '1.8rem',
+                                                    fontWeight: '600',
+                                                    border: 'none',
+                                                }}
+                                                variant="contained"
+                                                size="large"
+                                            >
+                                                Cancel
+                                            </Button>
+                                        </Box>
+                                    )}
                                 </div>
                             </div>
                         </div>
