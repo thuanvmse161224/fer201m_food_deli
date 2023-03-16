@@ -69,15 +69,16 @@ function handleClick(event) {
           <Box className="Category-link">
             <div role="presentation" onClick={handleClick}>
               <Breadcrumbs
-                aria-label="breadcrumb"
+                aria-label="breadcrumb"   
                 fontSize="2rem"
                 separator={<NavigateNextIcon/>}
               >
-                <Link underline="hover" sx={{ color: "#2b90c6" }} to='/'>
+                <Link className="link trangchu-link" underline="hover" to='/'>
                   Trang chủ
-                </Link>
+                </Link> 
                 
-                <Link
+                <Link 
+                 className="link nhaHang-link"
                   sx={{ color: "green" }}
                   href="/homeSalePage"
                 >
