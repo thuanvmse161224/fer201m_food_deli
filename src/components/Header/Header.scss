@@ -153,3 +153,29 @@
     bottom: 0;
     border: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+.header-fixed {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    .header-fixed-box {
+        display: flex;
+    }
+
+    .page-logo {
+        width: auto;
+        height: 90px;
+    }
+
+    .header-fixed-btn {
+        height: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: white;
+
+    }
+
+    .header-fixed-btn:hover {
+        background-color: white;
+    }
+}
