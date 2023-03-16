@@ -15,22 +15,7 @@ export default function Header() {
             <header className="home-header">
                 <div className="header-img-container">
                     <img className="background-header-img" src={imageBackgr} alt="" />
-                </div>
-
-                <div className="home-header-nav">
-                    <a href="#" className="home-header-left">
-                        <img className="page-logo" src={pageLogo} alt="FptFood" />
-                    </a>
-
-                    <div className="home-header-right">
-                        <ul className="home-header-list">
-                            <li className="header-item">
-                                <img src={cartIcon} alt="Cart" />
-                            </li>
-                            <li className="header-item">Đăng nhập/Đăng ký</li>
-                        </ul>
-                    </div>
-                </div>
+                </div>                
 
                 <div className="location-delivery-container">
                     <div className="location-header">

@@ -6,8 +6,8 @@ export const data = [
     },
     {
         id:2,
-        name:'Cơm tấm',
-        img:'/HomeMenu/images/ricetam.jpg'
+        name:'Cháo',
+        img:'/HomeMenu/images/chao.jpg'
     },
     {
         id:3,
@@ -26,38 +26,38 @@ export const data = [
     },
     {
         id:6,
-        name:'Mì Ý',
-        img:'/HomeMenu/images/pasta.jpg'
+        name:'Pizza',
+        img:'/HomeMenu/images/pizza.jpg'
     },
     {
         id:7,
-        name:'Cà phê',
-        img:'/HomeMenu/images/coffee.jpg'
+        name:'Bún',
+        img:'/HomeMenu/images/bunrieu.jpg'
     },
     {
         id:8,
         name:'Ăn vặt',
         img:'/HomeMenu/images/cavienchien.jpg'
     },
-    {
-        id:9,
-        name:'Burger',
-        img:'/HomeMenu/images/burger.jpg'
-    },
-    {
-        id:10,
-        name:'Cháo',
-        img:'/HomeMenu/images/chao.jpg'
-    },
-    {
-        id:11,
-        name:'Beefsteak',
-        img:'/HomeMenu/images/beefsteak.jpg'
-    },
-    {
-        id:12,
-        name:'Ưu đãi cuối tuần',
-        img:'/HomeMenu/images/bundaumamtom.jpg'
-    },
+    // {
+    //     id:9,
+    //     name:'Burger',
+    //     img:'/HomeMenu/images/burger.jpg'
+    // },
+    // {
+    //     id:10,
+    //     name:'Cháo',
+    //     img:'/HomeMenu/images/chao.jpg'
+    // },
+    // {
+    //     id:11,
+    //     name:'Beefsteak',
+    //     img:'/HomeMenu/images/beefsteak.jpg'
+    // },
+    // {
+    //     id:12,
+    //     name:'Ưu đãi cuối tuần',
+    //     img:'/HomeMenu/images/bundaumamtom.jpg'
+    // },
     
 ];
