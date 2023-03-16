@@ -15,6 +15,22 @@
       margin-top: 2rem;
       border-top: 2px solid;
       padding-top: 2rem;
+      .link{
+        text-decoration: none;
+      }
+      .nhaHang-link{
+        color: green;
+      }
+      .trangchu-link{
+        color: black;
+      }
+      .trangchu-link :hover {
+        color: black; 
+        text-decoration: underline; 
+      }
+      .trangchu-link :visited {
+        color: black;
+      }
     }
     .Category-Title {
       span {
