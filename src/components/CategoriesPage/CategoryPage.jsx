@@ -13,8 +13,14 @@ import GpsFixedIcon from "@mui/icons-material/GpsFixed";
 import InputAdornment from "@mui/material/InputAdornment";
 import FilledInput from "@mui/material/FilledInput";
 import SearchIcon from "@mui/icons-material/Search";
+import { useParams } from "react-router-dom";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import Box from "@mui/material/Box";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import { Link } from "react-router-dom";
 export default function CategoryPage() {
   const [data, setData] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://localhost:5000/restaurants")
@@ -25,6 +31,16 @@ export default function CategoryPage() {
         console.error(error);
       });
   }, []);
+  const { cateName } = useParams();
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchName = (e) => {
+    setSearchTerm(e.target.value)
+  }
+function handleClick(event) {
+  event.preventDefault();
+}
   return (
     <div className="Category-Container">
       <div className="Category-body">
@@ -40,56 +56,80 @@ export default function CategoryPage() {
               <InputAdornment position="start">
                 <SearchIcon style={{ width: "32px", height: "32px" }} />
               </InputAdornment>
+
             }
             sx={{ fontSize: "25px" }}
+            value={searchTerm}
+            onChange={handleSearchName}
+            placeholder="Tìm kiếm nhà hàng tại đây"
           />
+
         </FormControl>
-        <div className="Category-divider" />
+    
+          <Box className="Category-link">
+            <div role="presentation" onClick={handleClick}>
+              <Breadcrumbs
+                aria-label="breadcrumb"   
+                fontSize="2rem"
+                separator={<NavigateNextIcon/>}
+              >
+                <Link className="link trangchu-link" underline="hover" to='/'>
+                  Trang chủ
+                </Link> 
+                
+                <Link 
+                 className="link nhaHang-link"
+                  sx={{ color: "green" }}
+                  href="/homeSalePage"
+                >
+                  Nhà hàng
+                </Link>
+              </Breadcrumbs>
+            </div>
+          </Box>
         <div className="Category-Title">
           <h1>
             Quán ăn tại <span>Hồ Chí Minh</span>
           </h1>
         </div>
         <div className="Category-content">
-          {data.map((item) => {
-            if (item.coupon) {
+          {data.filter((restaurant) => restaurant.category === cateName && restaurant.shopName.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map((restaurant) => {
               return (
                 <Card className="HomeSale-Card" height="350px">
                   <CardActionArea>
                     <CardMedia
                       component="img"
                       height="250"
-                      image={item.menu[0].img}
+                      image={restaurant.menu[0].img}
                       alt="green iguana"
                     />
                     <CardContent>
                       <Typography gutterBottom variant="h3" component="div">
-                        {item.shopName}
+                        {restaurant.shopName}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        {item.description}
+                        {restaurant.description}
                       </Typography>
                       <Typography variant="body3">
                         <div>
                           <StarIcon style={{ color: "yellow" }} />
-                          {item.rating}
+                          {restaurant.rating}
                         </div>
                         <div className="Icon">
                           <AccessTimeIcon />
-                          {item.time}
+                          {restaurant.time}
                         </div>
                         <div className="Icon">
                           <GpsFixedIcon />
-                          {item.distance}
+                          {restaurant.distance}
                         </div>
                       </Typography>
                     </CardContent>
                   </CardActionArea>
                 </Card>
-              );
-            }
-            return null;
-          })}
+              )
+            })}
         </div>
       </div>
     </div>
