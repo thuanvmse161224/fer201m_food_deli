@@ -4,7 +4,11 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import pageLogo from './assets/image/FptFoodLogo.png';
 
 import { useState, useEffect } from 'react';
+import React from 'react';
 import { Box, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import ViewCart from '../ViewCart/ViewCart';
+
 
 
 export default function HeaderFixed() {
@@ -23,28 +27,33 @@ export default function HeaderFixed() {
         };
     }, []);
 
+
+
     return (
         <div className='header-fixed'>
 
-            <Box  sx={{ flexGrow: 1, position: 'relative' }}>
+            <Box sx={{ flexGrow: 1, position: 'relative' }}>
                 <AppBar className="header-fixed-box" sx={{ backgroundColor: isTop ? 'transparent' : 'white' }} elevation={1}>
                     <Toolbar sx={{ height: '88px' }}>
                         <a href="#">
                             <img className="page-logo" src={pageLogo} alt="FptFood" />
                         </a>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
-                        <Button className='header-fixed-btn' color="inherit"
-                            sx={{
-                                padding: '0',
-                                width: '40px',
-                                height: '40px',
-                                border: '1px solid rgba(0,0,0,0.2)',
-                                backgroundColor: 'white',
-                                marginRight: '10px',
-                                '&:hover': { backgroundColor: 'white' }
-                            }}>
-                            <ShoppingBagOutlinedIcon fontSize='large' sx={{ color: 'rgba(0,0,0,0.4)' }} />
-                        </Button>
+                        {/* <Link style={{ textDecoration: 'none' }} to={`/viewCart`}> */}
+                            <Button className='header-fixed-btn' color="inherit"
+                                sx={{
+                                    padding: '0',
+                                    width: '40px',
+                                    height: '40px',
+                                    border: '1px solid rgba(0,0,0,0.2)',
+                                    backgroundColor: 'white',
+                                    marginRight: '10px',
+                                    '&:hover': { backgroundColor: 'white' }
+                                }}>
+                                <ShoppingBagOutlinedIcon fontSize='large' sx={{ color: 'rgba(0,0,0,0.4)' }} />
+                                {/* <ViewCart/> */}
+                            </Button>
+                        {/* </Link> */}
                         <Button className='header-fixed-btn'
                             sx={{
                                 color: 'black',
