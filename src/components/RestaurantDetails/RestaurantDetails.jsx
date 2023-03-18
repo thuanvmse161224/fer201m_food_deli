@@ -1,31 +1,25 @@
 // import * as React from "react";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../RestaurantDetails/RestaurantDetails.scss";
-import axios from "axios";
 import {
   Container,
   Breadcrumbs,
   Tab,
   Box,
   Typography,
-  Card,
-  CardMedia,
-  CardContent,
   Grid,
-  Tooltip,
 } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Link } from "react-router-dom";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import FoodCard from "./FoodCard";
 import FoodCardSale from "./FoodCardSale";
 
 export default function RestaurantDetails() {
+  let { shopName, desc, dist, rate, time, coup } = useParams();
   const RenderBreadcrumbs = () => {
     const handleClick = (event) => {
       event.preventDefault();
@@ -48,7 +42,9 @@ export default function RestaurantDetails() {
                 className="link-breadcrumbs-active"
                 to="#"
                 aria-current="page"
-              ></Link>
+              >
+                {shopName}
+              </Link>
             </Breadcrumbs>
           </div>
         </Box>
@@ -91,9 +87,10 @@ export default function RestaurantDetails() {
                 >
                   Ưu đãi hôm nay
                 </Typography>
-                <div className="food-card-container">
-                  {/* <FoodCardSale /> */}
-                  <FoodCard />
+                <div className="card-food">
+                  <Grid container spacing={3}>
+                    <FoodCardSale />
+                  </Grid>
                 </div>
               </TabPanel>
               <TabPanel value="2">
@@ -105,7 +102,9 @@ export default function RestaurantDetails() {
                 >
                   Menu
                 </Typography>
-                <FoodCard />
+                <div className="card-food">
+                  <FoodCard />
+                </div>
               </TabPanel>
             </Container>
           </div>
@@ -128,7 +127,7 @@ export default function RestaurantDetails() {
             variant="h1"
             gutterBottom
           >
-            {/* {shopName} */}
+            {shopName}
           </Typography>
           <Typography
             fontSize="1.8rem"
@@ -139,7 +138,7 @@ export default function RestaurantDetails() {
             variant="body2"
             color="textSecondary"
           >
-            {/* {desc} */}
+            {desc}
           </Typography>
           <Typography
             fontSize="1.6rem"
@@ -149,9 +148,9 @@ export default function RestaurantDetails() {
             variant="body2"
             color="textSecondary"
           >
-            {/* <i className="fa-solid fa-star"></i>&ensp;{rating} &ensp;&ensp;
+            <i className="fa-solid fa-star"></i>&ensp;{rate} &ensp;&ensp;
             <i className="fa-regular fa-clock"></i>&ensp;{time} &ensp;&ensp;
-            <i className="fa-solid fa-map-pin"></i>&ensp;{distance} */}
+            <i className="fa-solid fa-map-pin"></i>&ensp;{dist}
           </Typography>
           <Typography
             fontSize="1.5rem"
@@ -163,7 +162,7 @@ export default function RestaurantDetails() {
             color="textSecondary"
           >
             <i className="fa-solid fa-tags"></i>
-            {/* &ensp;{coup} */}
+            &ensp;{coup}
           </Typography>
         </Container>
 
@@ -174,4 +173,3 @@ export default function RestaurantDetails() {
     </div>
   );
 }
-
