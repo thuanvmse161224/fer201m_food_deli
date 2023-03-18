@@ -8,8 +8,8 @@ import { height } from "@mui/system";
 import Contact from "./components/Contact/Contact";
 import CategoryPage from "./components/CategoriesPage/CategoryPage";
 import HeaderFixed from "./components/Header/HeaderFixed";
-import Cart from "./components/Cart/Cart";
-import ViewCart from "./components/ViewCart/ViewCart";
+import HomeMenu from "./components/HomeMenu/HomeMenu";
+import LoginPage from "./components/LoginPage/LoginPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,24 +28,25 @@ function App() {
   return (
     <>
       <HeaderFixed />
-      <Header />
+
       <Routes>
         <Route
           path="/"
           element={
-            <div>
-              <p></p>
-            </div>
+            <>
+              <Header />
+              <HomeSale />
+              <HomeMenu />
+            </>
           }
         />
         {/* Thay đổi element tùy ý */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/catePage/:cateName" element={<CategoryPage />} />
-        <Route path="/viewCart" element={<ViewCart />} />
+        <Route path="/loginPage" element={<LoginPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      <HomeSale />
-      <ViewCart />
+
       <Footer />
     </>
   );

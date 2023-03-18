@@ -114,7 +114,8 @@ export default function HeaderFixed() {
                             }}>
                             <ShoppingBagOutlinedIcon fontSize='large' sx={{ color: 'rgba(0,0,0,0.4)' }} />
                         </Button>
-                        {/* </Link> */}
+
+                    <Link to="/loginPage">
                         <Button className='header-fixed-btn'
                             sx={{
                                 color: 'black',
@@ -124,6 +125,8 @@ export default function HeaderFixed() {
                             }}>
                             Đăng nhập/Đăng ký
                         </Button>
+
+                    </Link>    
 
                     </Toolbar>
                 </AppBar>
