@@ -237,94 +237,94 @@ export default function Cart() {
                                     }}
                                 />
                             </div>
+                        </div>
 
-                            <div className="modal-footer" style={{
-                                position: 'absolute',
-                                bottom: '0',
-                                width: '100%',
-                                margin: '0 -24px',
-                                padding: '24px',
-                                boxShadow: '0 0px 10px #888888',
-                                backgroundColor: 'white',
-                                display: 'flex',
-                                alignItems: 'center',
-                            }}>
-                                <div className="number-actions" style={{ width: 'fit-content', }}>
-                                    <StyledTextField
-                                        label=""
-                                        type="number"
-                                        value={quantity}
-                                        sx={{
-                                            border: 'none',
-                                        }}
-                                        InputProps={{
-                                            disableUnderline: true,
-                                            inputProps: { step: 1, min: 0 },
-                                            startAdornment: (
-                                                <InputAdornment position="start">
-                                                    <IconButton onClick={DecrementQuan}>
-                                                        <RemoveIcon />
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            ),
-                                            endAdornment: (
-                                                <InputAdornment position="end">
-                                                    <IconButton onClick={IncrementQuan}>
-                                                        <AddIcon />
-                                                    </IconButton>
-                                                </InputAdornment>
-                                            ),
-                                        }}
-                                    />
-                                </div>
+                        <div className="modal-footer" style={{
+                            position: 'absolute',
+                            bottom: '0',
+                            width: '100%',
+                            margin: '0 -24px',
+                            padding: '24px',
+                            boxShadow: '0 0px 10px #888888',
+                            backgroundColor: 'white',
+                            display: 'flex',
+                            alignItems: 'center',
+                        }}>
+                            <div className="number-actions" style={{ width: 'fit-content', }}>
+                                <StyledTextField
+                                    label=""
+                                    type="number"
+                                    value={quantity}
+                                    sx={{
+                                        border: 'none',
+                                    }}
+                                    InputProps={{
+                                        disableUnderline: true,
+                                        inputProps: { step: 1, min: 0 },
+                                        startAdornment: (
+                                            <InputAdornment position="start">
+                                                <IconButton onClick={DecrementQuan}>
+                                                    <RemoveIcon />
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                        endAdornment: (
+                                            <InputAdornment position="end">
+                                                <IconButton onClick={IncrementQuan}>
+                                                    <AddIcon />
+                                                </IconButton>
+                                            </InputAdornment>
+                                        ),
+                                    }}
+                                />
+                            </div>
 
-                                <div className="add-to-cart-block" style={{ width: '100%' }}>
-                                    {quantity > 0 ? (
-                                        <Box sx={{
-                                            '& button': { m: 1 }, '&:hover': {
-                                                filter: 'brightness(1.2)',
-                                                cursor: 'pointer',
-                                            },
-                                        }}>
-                                            <Button className="add-to-cart-btn"
-                                                style={{
-                                                    width: '100%',
-                                                    margin: '0 !important',
-                                                    height: '50px',
-                                                    borderRadius: '10px',
-                                                    backgroundColor: '#1ebd60',
-                                                    color: 'white',
-                                                    fontSize: '1.8rem',
-                                                    fontWeight: '600',
-                                                    border: 'none',
+                            <div className="add-to-cart-block" style={{ width: '100%' }}>
+                                {quantity > 0 ? (
+                                    <Box sx={{
+                                        '& button': { m: 1 }, '&:hover': {
+                                            filter: 'brightness(1.2)',
+                                            cursor: 'pointer',
+                                        },
+                                    }}>
+                                        <Button className="add-to-cart-btn"
+                                            style={{
+                                                width: '100%',
+                                                margin: '0 !important',
+                                                height: '50px',
+                                                borderRadius: '10px',
+                                                backgroundColor: '#1ebd60',
+                                                color: 'white',
+                                                fontSize: '1.8rem',
+                                                fontWeight: '600',
+                                                border: 'none',
 
-                                                }} variant="contained" size="large">
-                                                Add to cart
-                                            </Button>
-                                        </Box>
-                                    ) : (
-                                        <Box sx={{ '& button': { m: 1 } }}>
-                                            <Button
-                                                className="cancel-btn"
-                                                style={{
-                                                    width: '100%',
-                                                    margin: '0 !important',
-                                                    height: '50px',
-                                                    borderRadius: '10px',
-                                                    backgroundColor: 'red',
-                                                    color: 'white',
-                                                    fontSize: '1.8rem',
-                                                    fontWeight: '600',
-                                                    border: 'none',
-                                                }}
-                                                variant="contained"
-                                                size="large"
-                                            >
-                                                Cancel
-                                            </Button>
-                                        </Box>
-                                    )}
-                                </div>
+                                            }} variant="contained" size="large">
+                                            Add to cart
+                                        </Button>
+                                    </Box>
+                                ) : (
+                                    <Box sx={{ '& button': { m: 1 } }}>
+                                        <Button
+                                            className="cancel-btn"
+                                            style={{
+                                                width: '100%',
+                                                margin: '0 !important',
+                                                height: '50px',
+                                                borderRadius: '10px',
+                                                backgroundColor: 'red',
+                                                color: 'white',
+                                                fontSize: '1.8rem',
+                                                fontWeight: '600',
+                                                border: 'none',
+                                            }}
+                                            variant="contained"
+                                            size="large"
+                                        >
+                                            Cancel
+                                        </Button>
+                                    </Box>
+                                )}
                             </div>
                         </div>
                     </Box>
