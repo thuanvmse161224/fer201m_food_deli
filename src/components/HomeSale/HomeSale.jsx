@@ -91,11 +91,7 @@ export default function HomeSale() {
             if (item.coupon) {
               return (
                 <Link
-                  to={{
-                    pathname: `/resDetailPage/${item.id}/${item.shopName}`,
-                    // state: `{${item.menu[i]}}`,
-                  }}
-                  // to={`/resDetailPage/${item.id}/${item.shopName}/${item.rating}/${item.time}/${item.distance}/${item.description}/${item.coupon}`}
+                  to={`/resDetailPage/${item.id}/${item.shopName}/${item.rating}/${item.distance}/${item.description}/${item.coupon}/${item.time}`}
                 >
                   <Card
                     key={item.id}

@@ -30,59 +30,60 @@ const FoodCardSale = () => {
 
   return data.coupon ? (
     data.menu.map((res) => (
-      <Grid container spacing={3} key={res.foodID}>
-        <Grid item xs={12} sm={6} md={4}>
-          <Box minHeight="100px">
-            <Card sx={{ display: "flex", width: "100%", height: "180px" }}>
-              <CardMedia
-                component="img"
-                sx={{
-                  width: 110,
-                  height: 110,
-                  margin: 2,
-                  borderRadius: 2,
-                }}
-                image={res.img}
-                alt=""
-              />
-              <CardContent sx={{ flex: "1 0 auto" }}>
-                <Typography
-                  fontSize="1.6rem"
-                  component="h6"
-                  variant="body1"
-                  sx={{ width: "90%", paddingBottom: "50px" }}
-                >
-                  {res.name}
-                </Typography>
-                <Typography
-                  fontSize="1.4rem"
-                  variant="subtitle1"
-                  color="text.secondary"
-                  component="div"
-                  sx={{ display: "contents" }}
-                >
-                  {res.price} VND
-                  <Tooltip title="Thêm vào giỏ hàng">
-                    <IconButton
-                      size="large"
-                      sx={{
-                        marginLeft: 5,
-                        color: "green",
-                        fontSize: "3rem",
-                      }}
-                    >
-                      <AddBoxRoundedIcon fontSize="inherit" />
-                    </IconButton>
-                  </Tooltip>
-                </Typography>
-              </CardContent>
-            </Card>
-          </Box>
-        </Grid>
+      <Grid item xs={12} sm={6} md={4} key={res.foodID}>
+        <Box minHeight="100px">
+          <Card sx={{ display: "flex", width: "100%", height: "180px" }}>
+            <CardMedia
+              component="img"
+              sx={{
+                width: 110,
+                height: 110,
+                margin: 2,
+                borderRadius: 2,
+              }}
+              image={res.img}
+              alt=""
+            />
+            <CardContent sx={{ flex: "1 0 auto" }}>
+              <Typography
+                fontSize="1.6rem"
+                component="h6"
+                variant="body1"
+                sx={{ width: "90%", paddingBottom: "30px" }}
+              >
+                {res.name}
+              </Typography>
+              <Typography
+                fontSize="1.4rem"
+                variant="subtitle1"
+                color="text.secondary"
+                component="div"
+                sx={{ display: "contents" }}
+              >
+                {res.price} VND
+                <Tooltip title="Thêm vào giỏ hàng">
+                  <IconButton
+                    size="large"
+                    sx={{
+                      marginLeft: 5,
+                      color: "green",
+                      fontSize: "3rem",
+                    }}
+                  >
+                    <AddBoxRoundedIcon fontSize="inherit" />
+                  </IconButton>
+                </Tooltip>
+              </Typography>
+            </CardContent>
+          </Card>
+        </Box>
       </Grid>
     ))
   ) : (
-    <h3> Hôm nay không có khuyến mãi </h3>
+    <h3>
+      {" "}
+      Hôm nay không có khuyến mãi ! <i class="fa-regular fa-face-sad-cry"></i>
+    </h3>
   );
 };
 
