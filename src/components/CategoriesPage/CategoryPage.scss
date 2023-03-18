@@ -1,0 +1,71 @@
+.Category-Container {
+  .Category-body {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding-top: 100px;
+    .Category-header {
+      .css-1vbc0rj-MuiInputBase-input-MuiFilledInput-input {
+        padding-top: 8px;
+        position: relative;
+      }
+    }
+
+   
+    .Category-link{
+      margin-top: 2rem;
+      border-top: 2px solid;
+      padding-top: 2rem;
+      .link{
+        text-decoration: none;
+      }
+      .nhaHang-link{
+        color: green;
+      }
+      .trangchu-link{
+        color: black;
+      }
+      .trangchu-link :hover {
+        color: black; 
+        text-decoration: underline; 
+      }
+      .trangchu-link :visited {
+        color: black;
+      }
+    }
+    .Category-Title {
+      span {
+        color: #00b14f;
+      }
+      margin: 70px 0;
+    }
+    .Category-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 20px; /* khoảng cách giữa các grid */
+      grid-row-gap: 20px; /* khoảng cách giữa các hàng của grid */
+      padding-bottom: 10rem;
+
+      .HomeSale-Card {
+        padding: 0 12px 24px;
+      }
+      .MuiTypography-h3 {
+        font-size: 18px;
+        margin-bottom: 16px;
+        font-weight: 700px;
+      }
+      .MuiTypography-body2 {
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
+      .MuiTypography-body3 {
+        display: flex;
+        .Icon {
+          padding-left: 17px;
+          font-size: 14px;
+          // font-style: ;
+          color: rgba(0, 0, 0, 0.6);
+        }
+      }
+    }
+  }
+}
