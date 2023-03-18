@@ -949,5 +949,47 @@
       "foodID": "8",
       "foodImg": "https://drive.google.com/uc?id=1R4jkUg1JBjkP7Cd28FSRsAl6OwxowHVi"
     }
+  ],
+  "contact-records" : [
+    {
+        "id": "1",
+        "firstName": "Nguyen",
+        "lastName": "A",
+        "email": "a",
+        "phone": "1",
+        "message": "aa"
+    },
+    {
+        "id": "2",
+        "firstName": "Nguyen",
+        "lastName": "B",
+        "email": "b",
+        "phone": "2",
+        "message": "aa"
+    },
+    {
+        "id": "3",
+        "firstName": "Nguyen",
+        "lastName": "C",
+        "email": "c",
+        "phone": "3",
+        "message": "aa"
+    },
+    {
+        "id": "4",
+        "firstName": "Nguyen",
+        "lastName": "D",
+        "email": "d",
+        "phone": "4",
+        "message": "aa"
+    },
+    {
+        "id": "5",
+        "firstName": "Nguyen",
+        "lastName": "F",
+        "email": "e",
+        "phone": "5",
+        "message": "aa"
+    }
   ]
 }
