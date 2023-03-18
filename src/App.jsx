@@ -14,6 +14,17 @@ import LoginPage from "./components/LoginPage/LoginPage";
 function App() {
   const [count, setCount] = useState(0);
 
+  const [cartModalOpen, setCartModalOpen] = useState(false);
+
+  const handleOpenCartModal = () => {
+    setCartModalOpen(true);
+  };
+
+  const handleCloseCartModal = () => {
+    setCartModalOpen(false);
+  };
+
+
   return (
     <>
       <HeaderFixed />
