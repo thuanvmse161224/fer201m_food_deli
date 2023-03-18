@@ -2,24 +2,14 @@ import "../ViewCart/ViewCart.scss";
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Box, fontWeight, maxHeight, styled } from '@mui/system';
+import { Box, styled } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/base/ButtonUnstyled';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
-import InputUnstyled from '@mui/base/InputUnstyled';
-import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import CartItem from "./CartItem";
-import { Typography } from "@mui/material";
 
-import cafe from '/Cart/imgs/cafeSua.png';
-import miQuangTomThit from '/Cart/imgs/MyQuangTomThit.png';
 
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
@@ -73,7 +63,7 @@ const style = (theme) => ({
 });
 
 export default function ViewCart() {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
@@ -134,10 +124,9 @@ export default function ViewCart() {
                                     }}>
                                         <div className="food-list" style={{marginBottom: '200px', minHeight: '49vh'}}>
                                             <CartItem />
-                                            
-                    
-                                            
-                                         
+                                            <CartItem />
+                                            <CartItem />
+                                                                            
                                             
                                         </div>
                                     </div>
