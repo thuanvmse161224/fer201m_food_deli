@@ -21,6 +21,9 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Link } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
+import FoodCard from "./FoodCard";
+import FoodCardSale from "./FoodCardSale";
 
 export default function RestaurantDetails() {
   const RenderBreadcrumbs = () => {
@@ -42,89 +45,14 @@ export default function RestaurantDetails() {
                 Nhà hàng
               </Link>
               <Link
-                className="link-breadcrumbs"
-                sx={{ color: "green" }}
-                to="/"
+                className="link-breadcrumbs-active"
+                to="#"
                 aria-current="page"
-              >
-                {/* props.data.shopName */}
-                Tên nhà hàng
-              </Link>
+              ></Link>
             </Breadcrumbs>
           </div>
         </Box>
       </Container>
-    );
-  };
-
-  const RenderCard = () => {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-      axios
-        .get("http://localhost:3000/restaurants")
-        .then((res) => {
-          setData(res.data);
-          console.log(res.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }, []);
-
-    return (
-      <>
-        <div class="card-food">
-          <Grid container spacing={3}>
-            {data.map((item) => (
-              <Grid item xs={12} sm={6} md={4} key={item.id}>
-                <Card sx={{ display: "flex", width: "100%" }}>
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      width: 110,
-                      height: 110,
-                      margin: 2,
-                      borderRadius: 2,
-                    }}
-                    image={item.menu[0].img}
-                    alt=""
-                  />
-                  <CardContent sx={{ flex: "1 0 auto" }}>
-                    <Typography
-                      component="h6"
-                      variant="body1"
-                      sx={{ width: "90%" }}
-                    >
-                      {item.menu[0].name} <br />
-                    </Typography>
-                    <Typography
-                      variant="subtitle1"
-                      color="text.secondary"
-                      component="div"
-                      sx={{ display: "contents" }}
-                    >
-                      {item.menu[0].price} VND
-                    </Typography>
-                    <Tooltip title="Thêm vào giỏ hàng">
-                      <IconButton
-                        aria-label="delete"
-                        size="large"
-                        sx={{
-                          marginLeft: 5,
-                          color: "green",
-                        }}
-                      >
-                        <AddBoxRoundedIcon fontSize="inherit" />
-                      </IconButton>
-                    </Tooltip>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </div>
-      </>
     );
   };
 
@@ -143,8 +71,12 @@ export default function RestaurantDetails() {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
               >
-                <Tab label="Ưu đãi hôm nay" value="1" />
-                <Tab label="Menu" value="2" />
+                <Tab
+                  sx={{ fontSize: "2rem" }}
+                  label="Ưu đãi hôm nay"
+                  value="1"
+                />
+                <Tab sx={{ fontSize: "2rem" }} label="Menu" value="2" />
               </TabList>
             </Box>
           </Container>
@@ -152,23 +84,28 @@ export default function RestaurantDetails() {
             <Container>
               <TabPanel value="1">
                 <Typography
+                  fontSize="3rem"
                   component="div"
                   variant="h4"
                   className="font-header"
                 >
                   Ưu đãi hôm nay
                 </Typography>
-                <RenderCard />
+                <div className="food-card-container">
+                  {/* <FoodCardSale /> */}
+                  <FoodCard />
+                </div>
               </TabPanel>
               <TabPanel value="2">
                 <Typography
+                  fontSize="3rem"
                   component="div"
                   variant="h4"
                   className="font-header"
                 >
                   Menu
                 </Typography>
-                {/* <RenderCard /> */}
+                <FoodCard />
               </TabPanel>
             </Container>
           </div>
@@ -183,22 +120,50 @@ export default function RestaurantDetails() {
 
       <div className="detail-info">
         <Container>
-          <Typography className="name-res" variant="h4" gutterBottom>
-            {/* {props.data.shopName} */}
-            Trà Sữa Bo Béo
+          <Typography
+            marginTop={2}
+            marginLeft={2}
+            fontSize="3rem"
+            className="name-res"
+            variant="h1"
+            gutterBottom
+          >
+            {/* {shopName} */}
           </Typography>
           <Typography
+            fontSize="1.8rem"
+            marginLeft={2.5}
+            className="desc"
             style={{ marginBottom: "10px" }}
             gutterBottom
             variant="body2"
             color="textSecondary"
           >
-            Cà phê - Trà - Sinh tố - Nước ép, Trà sữa, Tạp dề vàng
+            {/* {desc} */}
           </Typography>
-          <Typography gutterBottom variant="body2" color="textSecondary">
-            <i class="fa-solid fa-star"></i>&ensp;4.9 &ensp;
-            <i class="fa-regular fa-clock"></i>&ensp;20 phút &ensp;
-            <i class="fa-solid fa-map-pin"></i>&ensp;1.7 km
+          <Typography
+            fontSize="1.6rem"
+            className="desc"
+            marginLeft={2.5}
+            gutterBottom
+            variant="body2"
+            color="textSecondary"
+          >
+            {/* <i className="fa-solid fa-star"></i>&ensp;{rating} &ensp;&ensp;
+            <i className="fa-regular fa-clock"></i>&ensp;{time} &ensp;&ensp;
+            <i className="fa-solid fa-map-pin"></i>&ensp;{distance} */}
+          </Typography>
+          <Typography
+            fontSize="1.5rem"
+            marginTop={2}
+            marginLeft={3}
+            style={{ marginBottom: "10px" }}
+            gutterBottom
+            variant="body2"
+            color="textSecondary"
+          >
+            <i className="fa-solid fa-tags"></i>
+            {/* &ensp;{coup} */}
           </Typography>
         </Container>
 
