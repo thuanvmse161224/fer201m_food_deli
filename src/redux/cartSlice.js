@@ -9,12 +9,16 @@ const cartSlice = createSlice({
     reducers: {
         addItem: (state,action) =>{
             const{item, quantity} = action.payload;
+            if (!item || !item.foodID) {
+                return;
+              }
             const existingItem = state.items.find((cart) => cart.foodID === item.foodID)
             if(existingItem){
                 existingItem.quantity += quantity;
             }else{
-                state.push({
+                state.items.push({
                     foodID: item.foodID,
+                    img: item.img,
                     shopName: item.shopName,
                     name: item.name,
                     price: item.price,
@@ -56,3 +60,6 @@ const cartSlice = createSlice({
         },
     }
 })
+
+export default cartSlice;
+export const {addItem, clearItem,clearCart,increaseQuantity,decreaseQuantity}  = cartSlice.actions

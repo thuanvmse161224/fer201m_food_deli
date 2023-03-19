@@ -12,6 +12,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import cafe from '/Cart/imgs/cafeSua.png';
 import miQuangTomThit from '/Cart/imgs/MyQuangTomThit.png';
 
+import { useSelector } from "react-redux"
 export default function CartItem() {
 
     const [quantity, setQuan] = useState(1);
@@ -70,8 +71,9 @@ export default function CartItem() {
         }
     });
 
+    const items = useSelector((state) => state.cart.items);
     return (
-        <div className="food-item-wrap" style={{overflow: 'auto'}}>
+        <div className="food-item-wrap" style={{ overflow: 'auto' }}>
             <div className="food-item" style={{
                 height: '48px',
             }}>
@@ -104,33 +106,36 @@ export default function CartItem() {
                         }}
                     />
                 </div>
-
-                <div className="food-item-info">
-                    <div className="food-img-wrap">
-                        <img src={cafe} alt="Cafe Sua" className="food-img" />
-                    </div>
-
-                    <div className="food-item-name">
-                        Cà phê sữa đá
-                    </div>
-                    {quantity > 0 ? (
-                        <div className="food-item-price">
-                            14.000
+                {items.map((item) => ( 
+                    <div className="food-item-info" key = {item.foodID}>
+                            
+                        <div className="food-img-wrap">
+                            <img src={item.img} alt="Cafe Sua" className="food-img" />
                         </div>
 
-                    ) : (
-                        <a href="#" className="remove-item-btn" style={{
-                            textDecoration: 'none',
-                            color: '#ee6352',
-                            '&:hover': {
-                                color: '#ee6352'
-                            }
-                        }}>
-                            Remove
-                        </a>
-                    )}
+                        <div className="food-item-name">
+                            {item.name}
+                        </div>
+                        {quantity > 0 ? (
+                            <div className="food-item-price">
+                                {item.price}
+                            </div>
 
-                </div>
+                        ) : (
+                            <a href="#" className="remove-item-btn" style={{
+                                textDecoration: 'none',
+                                color: '#ee6352',
+                                '&:hover': {
+                                    color: '#ee6352'
+                                }
+                            }}>
+                                Remove
+                            </a>
+                        )}
+
+                    </div>
+                ))}
+
 
             </div>
         </div>

@@ -12,7 +12,10 @@ import {
 import IconButton from "@mui/material/IconButton";
 import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
 import { useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+// Import cartSlice
+import { useDispatch } from 'react-redux'
+import { addItem } from "../../redux/cartSlice";
 const FoodCardSale = () => {
   const [data, setData] = useState([]);
   const { id } = useParams();
@@ -28,6 +31,25 @@ const FoodCardSale = () => {
       });
   }, []);
 
+  const dispatch = useDispatch();
+
+  // Ham xu ly redux
+  const handleAddToCart = (item) => {
+    console.log(item.foodID);
+    if (item && item.foodID) {
+      const quantity = 1;
+      dispatch(addItem({
+        foodID: item.foodID,
+        img: item.img,
+        shopName: item.shopName,
+        name: item.name,
+        price: item.price,
+      }, quantity));
+      console.log("da nhan dispatch");
+    } else {
+      console.error('Invalid item:', item);
+    }
+  }
   return data.coupon ? (
     data.menu.map((res) => (
       <Grid item xs={12} sm={6} md={4} key={res.foodID}>
@@ -62,16 +84,20 @@ const FoodCardSale = () => {
               >
                 {res.price} VND
                 <Tooltip title="Thêm vào giỏ hàng">
+                  {/* <Link to={}/> */}
                   <IconButton
                     size="large"
                     sx={{
                       marginLeft: 5,
                       color: "green",
                       fontSize: "3rem",
+
                     }}
+                    onClick={() => handleAddToCart(res)}
                   >
                     <AddBoxRoundedIcon fontSize="inherit" />
                   </IconButton>
+                  {/* <Link/> */}
                 </Tooltip>
               </Typography>
             </CardContent>
