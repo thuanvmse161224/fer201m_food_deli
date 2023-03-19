@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { height } from "@mui/system";
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import { Navigate, Route, Routes } from "react-router-dom";
-
 import HomeSale from "./components/HomeSale/HomeSale";
-import { height } from "@mui/system";
+import RestaurantDetails from "./components/RestaurantDetails/RestaurantDetails";
 import Contact from "./components/Contact/Contact";
 import CategoryPage from "./components/CategoriesPage/CategoryPage";
 import HeaderFixed from "./components/Header/HeaderFixed";
@@ -28,7 +29,7 @@ function App() {
   return (
     <>
       <HeaderFixed />
-
+      
       <Routes>
         <Route
           path="/"
@@ -41,6 +42,11 @@ function App() {
           }
         />
         {/* Thay đổi element tùy ý */}
+
+        <Route
+          path="/resDetailPage/:id/:shopName/:rate/:dist/:desc/:coup/:time"
+          element={<RestaurantDetails />}
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/catePage/:cateName" element={<CategoryPage />} />
         <Route path="/loginPage" element={<LoginPage />} />
