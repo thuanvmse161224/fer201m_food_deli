@@ -23,13 +23,36 @@ const cartSlice = createSlice({
             }
             state.total += item.price * quantity
         },
-        removeItem: (state,action) =>{
-            const{foodID, quantity} = action.payload;
+        clearItem: (state, action) => {
+            const {foodID} = action.payload;
+            const item = state.items.find(cart => cart.foodID === foodID)
+            if(item){
+                state.total -= item.price * item.quantity
+                state.items = state.items.filter(cart => cart.foodID !== foodID)
+            }
+        },
+        clearCart: (state) =>{
+            state.items = []
+            state.total = 0
+        },
+        increaseQuantity: (state, action) => {
+            const {foodID} = action.payload;
             const existingItem = state.items.find(cart => cart.foodID === foodID)
             if(existingItem){
-                existingItem.quantity -= quantity;
-                total -= existingItem.
+                existingItem.quantity += 1;
+                state.total += existingItem.price
             }
-        }
+        },
+        decreaseQuantity: (state, action) => {
+            const {foodID} = action.payload;
+            const existingItem = state.items.find(cart => cart.foodID === foodID)
+            if(existingItem){
+                existingItem.quantity -= 1;
+                state.total -= existingItem.price
+                if(existingItem.quantity <= 0){
+                    state.items = state.items.filter(cart => cart.foodID !== foodID)
+                }
+            }
+        },
     }
 })
