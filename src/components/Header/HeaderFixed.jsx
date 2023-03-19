@@ -148,9 +148,7 @@ export default function HeaderFixed() {
             padding: 0,
         }
     });
-
     const items = useSelector((state) => state.cart.items);
-    console.log(items);
 
     return (
         <div className='header-fixed'>

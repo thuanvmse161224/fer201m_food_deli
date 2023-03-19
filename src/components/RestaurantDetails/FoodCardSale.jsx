@@ -41,9 +41,10 @@ const FoodCardSale = () => {
       dispatch(addItem({
         foodID: item.foodID,
         img: item.img,
-        shopName: item.shopName,
+        shopName: data.shopName,
         name: item.name,
         price: item.price,
+        quantity: quantity
       }, quantity));
       console.log("da nhan dispatch");
     } else {
