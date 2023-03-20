@@ -1,0 +1,181 @@
+.home-header {
+    position: relative;
+    min-height: 445px;
+    margin-bottom: 95px;
+
+
+    .header-img-container {
+        position: absolute;
+        height: 350px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .background-header-img {
+            width: 100%;
+            height: auto;
+            background-position: center center;
+        }
+    }
+
+    .home-header-nav {
+        height: 90px;
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 64px;
+        position: relative;
+
+        .home-header-left {
+            display: flex;
+
+            .page-logo {
+                border-top-right-radius: 25px;
+                border-bottom-left-radius: 25px;
+            }
+        }
+
+        .home-header-list {
+            list-style: none;
+            display: flex;
+            font-size: 16px;
+            align-items: center;
+
+            .header-item:first-child {
+                margin-right: 1.2rem;
+            }
+
+            .header-item {
+                display: flex;
+                align-items: center;
+                border: 1px solid #ededed;
+                border-radius: 6px;
+                padding: 0 12px;
+                height: 40px;
+                font-weight: 600;
+                background-color: white;
+            }
+        }
+    }
+
+    .location-delivery-container {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        padding: 48px 24px 24px;
+        left: 8%;
+        border-radius: 6px;
+        max-width: 310px;
+        font-size: 18px;
+        line-height: 1.4;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        bottom: -18%;
+        z-index: 1;
+
+        .location-header {
+            margin-bottom: 18px;
+
+            .location-title,
+            .location-text {
+                font-weight: 700;
+            }
+
+            .location-text {
+                font-size: 25px;
+            }
+        }
+
+        .location-form {
+            width: 100%;
+            display: flex;
+            background: white;
+            flex-direction: column;
+            align-items: center;
+
+            .user-input-location {
+                display: flex;
+                align-items: center;
+                padding: 5px 15px;
+                justify-content: center;
+                margin-bottom: 12px;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+                transition: all .4s ease;
+
+                .user-location {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                    font-size: 18px;
+                    margin: 0 6px;
+                    min-height: 34px;
+                }
+            }
+
+            .user-input-location:hover,
+            .user-input-location:focus-within {
+                border: 1px solid #1ebd60;
+                background-color: transparent;
+            }
+
+            .submit-btn {
+                width: 100%;
+                height: 48px;
+                background-color: #55b250;
+                border: none;
+                border-radius: 5px;
+                color: white;
+                font-weight: 700;
+                font-size: 17px;
+                cursor: pointer;
+                transition: all .4s ease;
+            }
+
+            .submit-btn:hover {
+                filter: brightness(1.2);
+            }
+
+        }
+
+    }
+
+
+}
+
+.home-header::after {
+    content: "";
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.header-fixed {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    .header-fixed-box {
+        display: flex;
+    }
+
+    .page-logo {
+        width: auto;
+        height: 90px;
+    }
+
+    .header-fixed-btn {
+        height: 40px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: white;
+
+    }
+
+    .header-fixed-btn:hover {
+        background-color: white;
+    }
+}
