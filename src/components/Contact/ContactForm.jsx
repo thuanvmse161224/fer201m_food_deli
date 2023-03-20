@@ -33,7 +33,7 @@ const validationSchema = yup.object({
     .min(10, "Must enter 10 or more characters"),
 });
 
-const apiUrl = "http://localhost:3000/feedBack";
+const apiUrl = "http://localhost:5000/contact-records";
 
 function ContactForm() {
   const formik = useFormik({
