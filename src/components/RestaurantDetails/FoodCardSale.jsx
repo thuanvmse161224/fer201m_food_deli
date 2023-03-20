@@ -45,7 +45,7 @@ const FoodCardSale = () => {
         name: item.name,
         price: item.price,
         quantity: quantity
-      }, quantity));
+      }));
       console.log("da nhan dispatch");
     } else {
       console.error('Invalid item:', item);
@@ -109,7 +109,7 @@ const FoodCardSale = () => {
   ) : (
     <h3>
       {" "}
-      Hôm nay không có khuyến mãi ! <i class="fa-regular fa-face-sad-cry"></i>
+      Hôm nay không có khuyến mãi ! <i className="fa-regular fa-face-sad-cry"></i>
     </h3>
   );
 };

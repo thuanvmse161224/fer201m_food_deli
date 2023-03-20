@@ -295,7 +295,7 @@ export default function HeaderFixed() {
                                                                 </div>
                                                                 {quantity > 0 ? (
                                                                     <div className="food-item-price">
-                                                                        {item.price}
+                                                                        {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)}
                                                                     </div>
 
                                                                 ) : (

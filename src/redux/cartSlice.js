@@ -8,19 +8,16 @@ const cartSlice = createSlice({
     },
     reducers: {
         addItem: (state,action) =>{
-            // console.log(action);
             const item = action.payload;
-            // const{item, quantity} = action.payload;
-            const quantity = 1;
             console.log(item);
             if (!item || !item.foodID) {
                 console.log("inside add item went out")
                 return;
-              }
-              console.log("inside add item success")
+            }
+            console.log("inside add item success")
             const existingItem = state.items.find((cart) => cart.foodID === item.foodID)
             if(existingItem){
-                existingItem.quantity += quantity;
+                existingItem.quantity += item.quantity;
             }else{
                 state.items.push({
                     foodID: item.foodID,
@@ -28,7 +25,7 @@ const cartSlice = createSlice({
                     shopName: item.shopName,
                     name: item.name,
                     price: item.price,
-                    quantity: quantity
+                    quantity: item.quantity
                 })
             }
             state.total += item.price * item.quantity
