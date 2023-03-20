@@ -339,7 +339,7 @@ export default function HeaderFixed() {
                                     }}>
                                         <span>Tổng Cộng</span>
                                         <div className="total-bill-val" style={{ fontWeight: '600' }}>
-                                            {total}.000
+                                            {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(total)}
                                         </div>
                                     </div>
 
