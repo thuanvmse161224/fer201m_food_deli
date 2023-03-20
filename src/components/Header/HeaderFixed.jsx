@@ -97,7 +97,7 @@ export default function HeaderFixed() {
             <Box sx={{ flexGrow: 1, position: 'relative' }}>
                 <AppBar className="header-fixed-box" sx={{ backgroundColor: isTop ? 'transparent' : 'white' }} elevation={1}>
                     <Toolbar sx={{ height: '88px' }}>
-                        <a href="#">
+                        <a href="/">
                             <img className="page-logo" src={pageLogo} alt="FptFood" />
                         </a>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
