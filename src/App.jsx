@@ -11,6 +11,7 @@ import CategoryPage from "./components/CategoriesPage/CategoryPage";
 import HeaderFixed from "./components/Header/HeaderFixed";
 import HomeMenu from "./components/HomeMenu/HomeMenu";
 import LoginPage from "./components/LoginPage/LoginPage";
+import About from "./components/About/About";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -48,6 +49,7 @@ function App() {
           element={<RestaurantDetails />}
         />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
         <Route path="/catePage/:cateName" element={<CategoryPage />} />
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
