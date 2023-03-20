@@ -8,20 +8,20 @@ import { Box, styled } from '@mui/system';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
+import { useDispatch } from "react-redux"
+import { increaseQuantity, decreaseQuantity } from '../../redux/cartSlice';
 
-import cafe from '/Cart/imgs/cafeSua.png';
-import miQuangTomThit from '/Cart/imgs/MyQuangTomThit.png';
-
-export default function CartItem() {
+export default function CartItem({item}) {
 
     const [quantity, setQuan] = useState(1);
+    const dispatch = useDispatch();
 
-    const IncrementQuan = () => {
-        setQuan(prevQuan => prevQuan + 1);
+    const IncrementQuan = (foodID) => {
+        dispatch(increaseQuantity(foodID))
     };
 
-    const DecrementQuan = () => {
-        setQuan(prevQuan => (prevQuan > 0 ? prevQuan - 1 : 0));
+    const DecrementQuan = (foodID) => {
+        dispatch(decreaseQuantity(foodID))
     };
 
     const StyledTextField = styled(TextField)({
@@ -71,68 +71,67 @@ export default function CartItem() {
     });
 
     return (
-        <div className="food-item-wrap" style={{overflow: 'auto'}}>
-            <div className="food-item" style={{
-                height: '48px',
-            }}>
+        <div key={item.foodID} className="food-item-wrap" style={{ overflow: 'auto' }}>
+        <div className="food-item" style={{
+            height: '48px',
+        }}>
 
-                <div className="quantity-actions">
-                    <StyledTextField
-                        label=""
-                        type="number"
-                        value={quantity}
-                        sx={{
-                            border: 'none',
-                        }}
-                        InputProps={{
-                            disableUnderline: true,
-                            inputProps: { step: 1, min: 0 },
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <IconButton onClick={DecrementQuan}>
-                                        <RemoveIcon />
-                                    </IconButton>
-                                </InputAdornment>
-                            ),
-                            endAdornment: (
-                                <InputAdornment position="end">
-                                    <IconButton onClick={IncrementQuan}>
-                                        <AddIcon />
-                                    </IconButton>
-                                </InputAdornment>
-                            ),
-                        }}
-                    />
+            <div className="quantity-actions">
+                <StyledTextField
+                    label=""
+                    type="number"
+                    value={item.quantity}
+                    sx={{
+                        border: 'none',
+                    }}
+                    InputProps={{
+                        disableUnderline: true,
+                        inputProps: { step: 1, min: 0 },
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <IconButton onClick={ () =>DecrementQuan(item.foodID)}>
+                                    <RemoveIcon/>
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton onClick={ () =>IncrementQuan(item.foodID)}>
+                                    <AddIcon/>
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }}
+                />
+            </div>
+
+            <div className="food-item-info">
+
+                <div className="food-img-wrap">
+                    <img src={item.img} alt="Cafe Sua" className="food-img" />
                 </div>
 
-                <div className="food-item-info">
-                    <div className="food-img-wrap">
-                        <img src={cafe} alt="Cafe Sua" className="food-img" />
-                    </div>
-
-                    <div className="food-item-name">
-                        Cà phê sữa đá
-                    </div>
-                    {quantity > 0 ? (
-                        <div className="food-item-price">
-                            14.000
-                        </div>
-
-                    ) : (
-                        <a href="#" className="remove-item-btn" style={{
-                            textDecoration: 'none',
-                            color: '#ee6352',
-                            '&:hover': {
-                                color: '#ee6352'
-                            }
-                        }}>
-                            Remove
-                        </a>
-                    )}
-
+                <div className="food-item-name">
+                    {item.name}
                 </div>
+                {quantity > 0 ? (
+                    <div className="food-item-price">
+                        {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)}
+                    </div>
 
+                ) : (
+                    <a href="#" className="remove-item-btn" style={{
+                        textDecoration: 'none',
+                        color: '#ee6352',
+                        '&:hover': {
+                            color: '#ee6352'
+                        }
+                    }}>
+                        Remove
+                    </a>
+                )}
             </div>
         </div>
+    </div>
     )
 }
