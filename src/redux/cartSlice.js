@@ -59,7 +59,10 @@ const cartSlice = createSlice({
                 existingItem.quantity -= 1;
                 state.total -= existingItem.price
                 if(existingItem.quantity <= 0){
-                    state.items = state.items.filter(cart => cart.foodID !== foodID)
+                   existingItem.quantity =0;
+                }else{
+                    existingItem.quantity -= 1;
+                    state.total -= existingItem.price
                 }
             }
         },

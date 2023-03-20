@@ -18,7 +18,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { InputAdornment, IconButton, TextField } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux"
-import { increaseQuantity, decreaseQuantity } from '../../redux/cartSlice';
+import { increaseQuantity, decreaseQuantity, clearItem } from '../../redux/cartSlice';
 
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
@@ -103,7 +103,9 @@ export default function HeaderFixed() {
     const DecrementQuan = (foodID) => {
         dispatch(decreaseQuantity(foodID))
     };
-
+    const RemoveItem = (foodID) =>{
+        dispatch(clearItem(foodID))
+    }
     const StyledTextField = styled(TextField)({
         '& .MuiInputBase-input': {
             fontSize: '1.4rem', // Adjust font size as needed
@@ -152,6 +154,7 @@ export default function HeaderFixed() {
     const items = useSelector((state) => state.cart.items);
  
      const total = useSelector(state => state.cart.total);
+     
     return (
         <div className='header-fixed'>
 
@@ -293,7 +296,7 @@ export default function HeaderFixed() {
                                                                 <div className="food-item-name">
                                                                     {item.name}
                                                                 </div>
-                                                                {quantity > 0 ? (
+                                                                {item.quantity > 0 ? (
                                                                     <div className="food-item-price">
                                                                         {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)}
                                                                     </div>
@@ -305,7 +308,9 @@ export default function HeaderFixed() {
                                                                         '&:hover': {
                                                                             color: '#ee6352'
                                                                         }
-                                                                    }}>
+                                                                    }}
+                                                                    onClick = {() => RemoveItem(item.foodID)}
+                                                                    >
                                                                         Remove
                                                                     </a>
                                                                 )}
