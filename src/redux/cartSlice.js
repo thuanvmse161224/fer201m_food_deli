@@ -8,10 +8,10 @@ const cartSlice = createSlice({
     },
     reducers: {
         addItem: (state,action) =>{
-            console.log(action);
+            // console.log(action);
             const item = action.payload;
             // const{item, quantity} = action.payload;
-            
+            const quantity = 1;
             console.log(item);
             if (!item || !item.foodID) {
                 console.log("inside add item went out")
@@ -28,10 +28,11 @@ const cartSlice = createSlice({
                     shopName: item.shopName,
                     name: item.name,
                     price: item.price,
-                    quantity: item.quantity
+                    quantity: quantity
                 })
             }
             state.total += item.price * item.quantity
+        
         },
         clearItem: (state, action) => {
             const {foodID} = action.payload;

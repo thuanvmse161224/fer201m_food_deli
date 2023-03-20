@@ -14,10 +14,11 @@ import ModalUnstyled from '@mui/base/ModalUnstyled';
 import Fade from '@mui/material/Fade';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
 import CartItem from '../ViewCart/CartItem';
-
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { InputAdornment, IconButton, TextField } from "@mui/material";
-import { useSelector } from "react-redux"
-
+import { useSelector, useDispatch } from "react-redux"
+import { increaseQuantity, decreaseQuantity } from '../../redux/cartSlice';
 
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
@@ -94,13 +95,13 @@ export default function HeaderFixed() {
 
     //check
     const [quantity, setQuan] = useState(1);
-
-    const IncrementQuan = () => {
-        setQuan(prevQuan => prevQuan + 1);
+    const dispatch = useDispatch();
+    const IncrementQuan = (foodID) => {
+        dispatch(increaseQuantity(foodID))
     };
 
-    const DecrementQuan = () => {
-        setQuan(prevQuan => (prevQuan > 0 ? prevQuan - 1 : 0));
+    const DecrementQuan = (foodID) => {
+        dispatch(decreaseQuantity(foodID))
     };
 
     const StyledTextField = styled(TextField)({
@@ -149,7 +150,8 @@ export default function HeaderFixed() {
         }
     });
     const items = useSelector((state) => state.cart.items);
-
+ 
+     const total = useSelector(state => state.cart.total);
     return (
         <div className='header-fixed'>
 
@@ -257,7 +259,7 @@ export default function HeaderFixed() {
                                                                 <StyledTextField
                                                                     label=""
                                                                     type="number"
-                                                                    value={quantity}
+                                                                    value={item.quantity}
                                                                     sx={{
                                                                         border: 'none',
                                                                     }}
@@ -266,15 +268,15 @@ export default function HeaderFixed() {
                                                                         inputProps: { step: 1, min: 0 },
                                                                         startAdornment: (
                                                                             <InputAdornment position="start">
-                                                                                <IconButton onClick={DecrementQuan}>
-                                                                                    <RemoveIcon />
+                                                                                <IconButton onClick={ () =>DecrementQuan(item.foodID)}>
+                                                                                    <RemoveIcon/>
                                                                                 </IconButton>
                                                                             </InputAdornment>
                                                                         ),
                                                                         endAdornment: (
                                                                             <InputAdornment position="end">
-                                                                                <IconButton onClick={IncrementQuan}>
-                                                                                    <AddIcon />
+                                                                                <IconButton onClick={ () =>IncrementQuan(item.foodID)}>
+                                                                                    <AddIcon/>
                                                                                 </IconButton>
                                                                             </InputAdornment>
                                                                         ),
@@ -337,7 +339,7 @@ export default function HeaderFixed() {
                                     }}>
                                         <span>Tổng Cộng</span>
                                         <div className="total-bill-val" style={{ fontWeight: '600' }}>
-                                            51.000đ
+                                            {total}.000
                                         </div>
                                     </div>
 
