@@ -1,27 +1,63 @@
 import { useState } from "react";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
 import { Navigate, Route, Routes } from "react-router-dom";
-import HomeSale from "./components/HomeSale/HomeSale";
 import { height } from "@mui/system";
 
-function App() {
-    const [count, setCount] = useState(0);
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import HomeSale from "./components/HomeSale/HomeSale";
+import RestaurantDetails from "./components/RestaurantDetails/RestaurantDetails";
+import Contact from "./components/Contact/Contact";
+import CategoryPage from "./components/CategoriesPage/CategoryPage";
+import HeaderFixed from "./components/Header/HeaderFixed";
+import HomeMenu from "./components/HomeMenu/HomeMenu";
+import LoginPage from "./components/LoginPage/LoginPage";
+import About from "./components/About/About";
 
-    return (
-        <>
-            <Header />
-            <Routes>
-                <Route path="/" element={<div style={{height: '1000px'}}><p></p></div>} />{/* Thay đổi element tùy ý */}
-                <Route
-                    path="*"
-                    element={<Navigate to="/" replace />}
-                />
-            </Routes>
-            <HomeSale/>
-            <Footer />
-        </>
-    );
+function App() {
+  const [count, setCount] = useState(0);
+
+  const [cartModalOpen, setCartModalOpen] = useState(false);
+
+  const handleOpenCartModal = () => {
+    setCartModalOpen(true);
+  };
+
+  const handleCloseCartModal = () => {
+    setCartModalOpen(false);
+  };
+
+
+  return (
+    <>
+      <HeaderFixed />
+      
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <HomeSale />
+              <HomeMenu />
+            </>
+          }
+        />
+        {/* Thay đổi element tùy ý */}
+
+        <Route
+          path="/resDetailPage/:id/:shopName/:rate/:dist/:desc/:coup/:time"
+          element={<RestaurantDetails />}
+        />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/catePage/:cateName" element={<CategoryPage />} />
+        <Route path="/loginPage" element={<LoginPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+
+      <Footer />
+    </>
+  );
 }
 
 export default App;

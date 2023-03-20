@@ -6,46 +6,47 @@
       "description": "Món Khác, Gà Rán - Burger, Tạp Dề Vàng, Ăn Vặt",
       "rating": "4.4",
       "time": "20 mins",
+      "category": "Trà sữa",
       "distance": "6.1 km",
       "coupon": "Giảm 10.000₫ phí giao hàng khi đặt đơn tối thiểu 100.000₫",
       "menu": [
         {
-          "id": "1",
+          "foodID": "1",
           "name": "Bánh Mì Pate, Trứng",
           "img":"https://drive.google.com/uc?id=1aziqzPUxyUKCr3dO0sGozR8Gex6xZW0l",
           "description": "Bánh mì, pate, trứng",
           "price": "25.000"
         },
         {
-          "id": "2",
+          "foodID": "2",
           "name": "Bánh Mì Lạp Xưởng, Chả",
           "img":"https://drive.google.com/uc?id=1VZZdmU70hUGxGa5quDWe4pPj22qEK-Tx",
           "description": "",
           "price": "35.000"
         },
         {
-          "id": "3",
+          "foodID": "3",
           "name": "Bánh Mì Chảo",
           "img":"https://drive.google.com/uc?id=1nV-cfC_i4Haz2uEFGUM_nP0kF0SODkyH",
           "description": "",
           "price": "15.000"
         },
         {
-          "id": "4",
+          "foodID": "4",
           "name": "Bánh Mì Thịt Xíu",
           "img":"https://drive.google.com/uc?id=1j-GS0UNZUb6ji7xEBecrbCj3w8e1U3WJ",
           "description": "",
           "price": "25.000"
         },
         {
-          "id": "5",
+          "foodID": "5",
           "name": "Sữa đậu nành",
           "img":"https://drive.google.com/uc?id=15bxjHTFHNLaNbPUTSbgxtPqsivktJMOR",
           "description": "",
           "price": "15.000"
         },
         {
-          "id": "6",
+          "foodID": "6",
           "name": "Trà đá",
           "img":"https://drive.google.com/uc?id=1_gQlBZY5dARlCAwKwqno8Tk-aXLjGrgf",
           "description": "",
@@ -59,6 +60,7 @@
       "description": "Món Khác, Bánh Mì - Xôi",
       "rating": "5",
       "time": "15 mins",
+      "category": "Bánh mì",
       "distance": "5.5 km",
       "coupon": "Xúc xích Giảm 11.000₫",
       "menu": [
@@ -112,6 +114,7 @@
       "description": "Bún - Phở - Cháo, Cháo",
       "rating": "3.8",
       "time": "30 mins",
+      "category": "Cháo",
       "distance": "4.5 km",
       "coupon": "Lavie Giảm 9.000₫",
       "menu": [
@@ -165,6 +168,7 @@
       "description": "Bún - Phở - Cháo,Cháo",
       "rating": "4.1",
       "time": "25 mins",
+      "category": "Cháo",
       "distance": "5 km",
       "coupon": "",
       "menu": [
@@ -218,6 +222,7 @@
       "description": "Món Khác,Tạp Dề Bạch Kim,Gà",
       "rating": "4.6",
       "time": "25 mins",
+      "category": "Gà",
       "distance": "3,3 km",
       "coupon": "Menu Giảm 30%",
       "menu": [
@@ -271,6 +276,7 @@
       "description": "Món Khác,Ăn Vặt,Gà",
       "rating": "4.2",
       "time": "25 mins",
+      "category": "Gà",
       "distance": "1.9 km",
       "coupon": "Flash Sale (Up To 30%) Giảm 20%",
       "menu": [
@@ -324,6 +330,7 @@
       "description": "Cơm,Pizza,Gà Rán - Burger",
       "rating": "4.7",
       "time": "20 mins",
+      "category": "Pizza",
       "distance": "0.2 km",
       "coupon": "Pizza Bò băm 13cm Giảm 62.000₫",
       "menu": [
@@ -377,6 +384,7 @@
       "description": "Pizza,Món Quốc Tế ,Món Nhật,Deluxe by Grab",
       "rating": "4.7",
       "time": "15 mins",
+      "category": "Pizza",
       "distance": "3.6 km",
       "coupon": "",
       "menu": [
@@ -430,6 +438,7 @@
       "description": "Bún - Phở - Cháo,Tạp Dề Bạc",
       "rating": "4.4",
       "time": "60 mins",
+      "category": "Bún",
       "distance": "5 km",
       "coupon": "Giảm 5.000₫ phí giao hàng khi đặt đơn tối thiểu 100.000₫",
       "menu": [
@@ -483,6 +492,7 @@
       "description": "Bún - Phở - Cháo",
       "rating": "4.1",
       "time": "25 mins",
+      "category": "Bún",
       "distance": "5 km",
       "coupon": "",
       "menu": [
@@ -536,6 +546,7 @@
       "description": "Trà Sữa",
       "rating": "4.9",
       "time": "25 mins",
+      "category": "Trà sữa",
       "distance": "5.5 km",
       "coupon": "Trà sữa kem trứng nướng nhật bản Giảm 18.000₫",
       "menu": [
@@ -589,6 +600,7 @@
       "description": "Trà Sữa",
       "rating": "4.8",
       "time": "5 mins",
+      "category": "Trà sữa",
       "distance": "2 km",
       "coupon": "",
       "menu": [
@@ -642,6 +654,7 @@
       "description": "Cơm",
       "rating": "4.2",
       "time": "5 mins",
+      "category": "Cơm",
       "distance": "2 km",
       "coupon": "Ưu đãi đến 70K",
       "menu": [
@@ -709,6 +722,7 @@
       "description": "Cơm,Tạp Dề Bạc,Món Khác",
       "rating": "4.6",
       "time": "25 mins",
+      "category": "Cơm",
       "distance": "5 km",
       "coupon": "",
       "menu": [
@@ -769,6 +783,7 @@
       "description": "Cơm",
       "rating": "4.6",
       "time": "25 mins",
+      "category": "Cơm",
       "distance": "5 km",
       "coupon": "",
       "menu": [
@@ -829,6 +844,7 @@
       "description": "Ăn Vặt",
       "rating": "4",
       "time": "25 mins",
+      "category": "Ăn vặt",
       "distance": "5 km",
       "coupon": "Tặng ngay Trà tắc truỳên thống khi đặt đơn tối thiểu 120.000₫",
       "menu": [
@@ -889,6 +905,91 @@
           "price": "20.000"
         }
       ]
+    }
+  ],
+  
+  "categories": [
+    {
+      "cateName": "Trà sữa",
+      "foodID": "1",
+      "foodImg": "https://drive.google.com/uc?id=1ajQ-IND9t1hUSp4_Hgjpa5S80oO-yi8S"
+    },
+    {
+      "cateName": "Cháo",
+      "foodID": "2",
+      "foodImg": "https://drive.google.com/uc?id=1L3ulJLSqCidPBHK8TSf9IZ4NxdcYZJRL"
+    },
+    {
+      "cateName": "Ăn vặt",
+      "foodID": "3",
+      "foodImg": "https://drive.google.com/uc?id=1Nf89fgwqQWiV0iZuEvijnwbP1o28Ju-J"
+    },
+    {
+      "cateName": "Gà rán",
+      "foodID": "4",
+      "foodImg": "https://drive.google.com/uc?id=1jD_Uk1rESbeDLXTMZDy9YywEDSoBgg1R"
+    },
+    {
+      "cateName": "Bánh mì",
+      "foodID": "5",
+      "foodImg": "https://drive.google.com/uc?id=1STXk9YkKhc3E8BrG2-D6bMm1NRR9QgJz"
+    },
+    {
+      "cateName": "Pizza",
+      "foodID": "6",
+      "foodImg": "https://drive.google.com/uc?id=18-oYdsfh7DBBrDjBRYC203cnQ7JEWwlb"
+    },
+    {
+      "cateName": "Bún",
+      "foodID": "7",
+      "foodImg": "https://drive.google.com/uc?id=1nCDUMRGLmED3K6HZbi2FzZsSMWHyRVL-"
+    },
+    {
+      "cateName": "Cơm",
+      "foodID": "8",
+      "foodImg": "https://drive.google.com/uc?id=1R4jkUg1JBjkP7Cd28FSRsAl6OwxowHVi"
+    }
+  ],
+  "contact-records" : [
+    {
+        "id": "1",
+        "firstName": "Nguyen",
+        "lastName": "A",
+        "email": "a",
+        "phone": "1",
+        "message": "aa"
+    },
+    {
+        "id": "2",
+        "firstName": "Nguyen",
+        "lastName": "B",
+        "email": "b",
+        "phone": "2",
+        "message": "aa"
+    },
+    {
+        "id": "3",
+        "firstName": "Nguyen",
+        "lastName": "C",
+        "email": "c",
+        "phone": "3",
+        "message": "aa"
+    },
+    {
+        "id": "4",
+        "firstName": "Nguyen",
+        "lastName": "D",
+        "email": "d",
+        "phone": "4",
+        "message": "aa"
+    },
+    {
+        "id": "5",
+        "firstName": "Nguyen",
+        "lastName": "F",
+        "email": "e",
+        "phone": "5",
+        "message": "aa"
     }
   ]
 }
