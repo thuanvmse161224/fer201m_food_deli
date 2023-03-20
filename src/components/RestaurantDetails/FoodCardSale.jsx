@@ -83,7 +83,7 @@ const FoodCardSale = () => {
                 component="div"
                 sx={{ display: "contents" }}
               >
-                {res.price} VND
+                {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(res.price)}
                 <Tooltip title="Thêm vào giỏ hàng">
                   {/* <Link to={}/> */}
                   <IconButton
