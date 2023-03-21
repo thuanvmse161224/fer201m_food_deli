@@ -63,8 +63,7 @@ const FoodCard = () => {
                       component="div"
                       sx={{ display: "contents" }}
                     >
-                      {item.price} VND
-                      <Tooltip title="Thêm vào giỏ hàng">
+                      {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)}                      <Tooltip title="Thêm vào giỏ hàng">
                         <IconButton
                           size="large"
                           sx={{

@@ -96,6 +96,9 @@ function handleClick(event) {
           {data.filter((restaurant) => restaurant.category === cateName && restaurant.shopName.toLowerCase().includes(searchTerm.toLowerCase()))
             .map((restaurant) => {
               return (
+                <Link
+                  to={`/resDetailPage/${restaurant.id}/${restaurant.shopName}/${restaurant.rating}/${restaurant.distance}/${restaurant.description}/${restaurant.coupon}/${restaurant.time}`}
+                >
                 <Card className="HomeSale-Card" height="350px">
                   <CardActionArea>
                     <CardMedia
@@ -128,6 +131,7 @@ function handleClick(event) {
                     </CardContent>
                   </CardActionArea>
                 </Card>
+                </Link>
               )
             })}
         </div>
