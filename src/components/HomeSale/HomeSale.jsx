@@ -87,7 +87,7 @@ export default function HomeSale() {
         </div>
         <Slider {...settings} className="HomeSale-Content">
           {/* <div className="HomeSale-Content"> */}
-          {data.map((item) => {
+          {data.slice(0,16).map((item) => {
             if (item.coupon) {
               return (
                 <Link
