@@ -3,13 +3,21 @@ import { useEffect } from 'react';
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Box, styled } from '@mui/system';
+import { Box, fontWeight, maxHeight, styled } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/base/ButtonUnstyled';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+import InputUnstyled from '@mui/base/InputUnstyled';
+import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import CartItem from "./CartItem";
+import { Typography } from "@mui/material";
 
 import { useSelector, useDispatch } from "react-redux"
 
