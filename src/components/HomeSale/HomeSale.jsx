@@ -137,11 +137,13 @@ export default function HomeSale() {
 
           {/* </div> */}
         </Slider>
-        <div className="HomeSale-Button">
-          <button type="button">
-            <span>See all promotions</span>
-          </button>
-        </div>
+        <Link to={`/allPromotions`}>
+          <div className="HomeSale-Button">
+            <button type="button">
+              <span>See all promotions</span>
+            </button>
+          </div>
+        </Link>
       </div>
     </div>
   );

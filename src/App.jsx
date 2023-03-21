@@ -12,6 +12,7 @@ import HeaderFixed from "./components/Header/HeaderFixed";
 import HomeMenu from "./components/HomeMenu/HomeMenu";
 import LoginPage from "./components/LoginPage/LoginPage";
 import About from "./components/About/About";
+import AllPromotions from "./components/AllPromotions/AllPromotions";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -48,6 +49,7 @@ function App() {
           path="/resDetailPage/:id/:shopName/:rate/:dist/:desc/:coup/:time"
           element={<RestaurantDetails />}
         />
+        <Route path="/allPromotions" element={<AllPromotions />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/catePage/:cateName" element={<CategoryPage />} />
