@@ -12,7 +12,9 @@ export default function Introduction () {
             id="about-intro"
             sx={{
                 width: "100%",
-                height: "500px"
+                height: "500px",
+                mt: "50px",
+                mb: "50px"
             }}
         >
             <Grid 
@@ -37,7 +39,7 @@ export default function Introduction () {
                             textAlign: "center"
                         }}
                     >
-                        Some bla bla bla header 
+                        Đem món ăn ngon tới tận cửa phòng học của bạn
                     </Typography>
                     <Typography
                         variant="p"
@@ -46,7 +48,7 @@ export default function Introduction () {
                             padding: "15px"
                         }}
                     > 
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a dapibus enim, vitae congue urna. Nunc vel sem quis lacus scelerisque aliquam non sed nunc. Ut ullamcorper luctus lectus in consequat. Cras interdum urna in pellentesque varius. Integer auctor ac nisl et pulvinar. Nulla facilisi. Duis non interdum nisi. Donec viverra diam eu ligula gravida, ut blandit elit rutrum. Curabitur placerat viverra fermentum
+                        Đã bao giờ bạn cảm thấy mệt vì tiết học kéo dài và canteen không có đa dạng các món ăn khác bạn cần? Hãy đặt hàng ngay tại dịch vụ của chúng tôi để có món ăn nhanh và tiện lợi nhất tại trường FPT.
                     </Typography>
                 </Grid>
                 <Grid
@@ -73,9 +75,10 @@ export default function Introduction () {
                                 color: "#00ff00",
                                 fontSize: "28px",
                                 fontWeight: "400",
+                                mb: "15px"
                             }}
                         >
-                            A long header 3 bla bla
+                            Món ăn đa dạng
                         </Typography>
                         <Typography
                             variant="p"
@@ -84,7 +87,7 @@ export default function Introduction () {
                                 fontSize: "18px",
                             }}
                         >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a dapibus enim, vitae congue urna. Nunc vel sem quis lacus scelerisque aliquam non sed nunc.
+                            Khám phá kho thức ăn đa dạng và phong phú của chúng tôi, chỉ cách nhau qua cái chạm từ điện thoại của bạn.
                         </Typography>
                     </Grid>
                     <Grid item md={6} sm={12}
@@ -107,9 +110,10 @@ export default function Introduction () {
                                 color: "#00ff00",
                                 fontSize: "28px",
                                 fontWeight: "400",
+                                mb: "15px"
                             }}
                         >
-                            A long header 3 bla bla
+                            Nhanh chóng tiện lợi
                         </Typography>
                         <Typography
                             variant="p"
@@ -118,7 +122,7 @@ export default function Introduction () {
                                 fontSize: "18px",
                             }}
                         >
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a dapibus enim, vitae congue urna. Nunc vel sem quis lacus scelerisque aliquam non sed nunc.
+                            Nhờ vào lợi thế tọa lạc và trung gian của chúng tôi, đơn hàng đặt nhanh trong vòng 5 - 10 phút trước khi đến cửa phòng của bạn, cực nhanh so với đối thủ cạnh tranh, và nhận ngay cửa phòng học của bạn
                         </Typography>
                     </Grid>
                 </Grid>

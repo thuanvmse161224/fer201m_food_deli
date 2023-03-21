@@ -11,7 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
 import { Link } from "react-router-dom";
 // Import cartSlice
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/cartSlice";
 const FoodCardSale = ({restaurant}) => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const FoodCardSale = ({restaurant}) => {
       }));
       console.log("da nhan dispatch");
     } else {
-      console.error('Invalid item:', item);
+      console.error("Invalid item:", item);
     }
   }
   return restaurant.coupon ? (
@@ -50,7 +50,7 @@ const FoodCardSale = ({restaurant}) => {
               image={foodItem.img}
               alt=""
             />
-            <CardContent sx={{ flex: "1 0 auto" }}>
+            <CardContent sx={{ flex: "1 0 auto", width: "60%" }}>
               <Typography
                 fontSize="1.6rem"
                 component="h6"
@@ -75,7 +75,6 @@ const FoodCardSale = ({restaurant}) => {
                       marginLeft: 5,
                       color: "green",
                       fontSize: "3rem",
-
                     }}
                     onClick={() => handleAddToCart(foodItem)}
                   >
@@ -92,7 +91,8 @@ const FoodCardSale = ({restaurant}) => {
   ) : (
     <h3>
       {" "}
-      Hôm nay không có khuyến mãi ! <i className="fa-regular fa-face-sad-cry"></i>
+      Hôm nay không có khuyến mãi !{" "}
+      <i className="fa-regular fa-face-sad-cry"></i>
     </h3>
   );
 };
