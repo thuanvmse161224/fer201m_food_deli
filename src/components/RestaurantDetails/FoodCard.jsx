@@ -47,7 +47,7 @@ const FoodCard = () => {
                     image={item.img}
                     alt=""
                   />
-                  <CardContent sx={{ flex: "1 0 auto" }}>
+                  <CardContent sx={{ flex: "1 0 auto", width: "60%" }}>
                     <Typography
                       fontSize="1.6rem"
                       component="h6"
