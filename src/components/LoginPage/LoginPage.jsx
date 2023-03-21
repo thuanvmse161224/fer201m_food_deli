@@ -13,8 +13,6 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import GoogleLoginButton from "./LoginGoogle";
 import { useNavigate } from "react-router-dom";
-import { useFormik } from "formik";
-import * as yup from "yup";
 
 function Copyright(props) {
   return (
@@ -36,43 +34,56 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-const validationSchema = yup.object({
-  email: yup
-    .string("Enter your email")
-    .email("Enter a valid email")
-    .typeError("Email không hợp lệ"),
-  password: yup
-    .string("Enter your password")
-    .typeError("Password không hợp lệ !"),
-});
-
 export default function LoginPage() {
-  const navigate = useNavigate();
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      const email = JSON.stringify(formik.values.email);
-      const password = JSON.stringify(formik.values.password);
-      console.log(values);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessages, setErrorMessages] = useState({});
 
-      const userData = database.find((user) => user.email === email);
-      navigate("/");
-      // if (userData) {
-      //   navigate("/");
-      // if (userData.password !== password) {
-      //   {
-      //     formik.errors.password;
-      //   }
-      // } else {
-      //   navigate("/");
-      // }
-      // }
+  const errors = {
+    username: "Username không hợp lệ",
+    password: "Password không hợp lệ",
+  };
+
+  const database = [
+    {
+      username: "admin",
+      password: "admin",
     },
-  });
+    {
+      username: "user",
+      password: "pass",
+    },
+  ];
+
+  const renderErrorMessage = (name) =>
+    name === errorMessages.name && (
+      <Typography sx={{ fontSize: "1rem", color: "red" }}>
+        {errorMessages.message}
+      </Typography>
+    );
+
+  const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    var { username, password } = document.forms[0];
+    console.log(username, password);
+
+    const userData = database.find((user) => user.username === username.value);
+
+    if (userData) {
+      if (userData.password !== password.value) {
+        setErrorMessages({ name: "password", message: errors.password });
+      } else {
+        console.log("submited");
+        sessionStorage.setItem("user_name", username.value);
+        alert("Đăng nhập thành công !");
+        navigate("/");
+      }
+    } else {
+      setErrorMessages({ name: "username", message: errors.username });
+    }
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -117,23 +128,21 @@ export default function LoginPage() {
             <Box
               component="form"
               noValidate
-              onSubmit={formik.handleSubmit}
+              onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
               <TextField
                 margin="normal"
                 fullWidth
-                type="email"
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
+                label="User Name"
+                name="username"
+                autoComplete="username"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+                helperText={renderErrorMessage("username")}
                 autoFocus
               />
+
               <TextField
                 margin="normal"
                 required
@@ -141,15 +150,12 @@ export default function LoginPage() {
                 name="password"
                 label="Password"
                 type="password"
-                id="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.password && Boolean(formik.errors.password)
-                }
-                helperText={formik.touched.password && formik.errors.password}
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                helperText={renderErrorMessage("password")}
                 autoComplete="current-password"
               />
+
               <Typography
                 sx={{
                   border: "#333 solid 0.5px",

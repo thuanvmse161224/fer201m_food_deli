@@ -46,7 +46,11 @@ function App() {
         {/* Thay đổi element tùy ý */}
 
         <Route
-          path="/resDetailPage/:id/:shopName/:rate/:dist/:desc/:coup/:time"
+          path="/resDetailPage/:id/:shopName/"
+          element={<RestaurantDetails />}
+        />
+        <Route
+          path="/resDetailPage/:id/"
           element={<RestaurantDetails />}
         />
         <Route path="/allPromotions" element={<AllPromotions />} />

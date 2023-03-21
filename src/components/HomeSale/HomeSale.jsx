@@ -91,7 +91,7 @@ export default function HomeSale() {
             if (item.coupon) {
               return (
                 <Link
-                  to={`/resDetailPage/${item.id}/${item.shopName}/${item.rating}/${item.distance}/${item.description}/${item.coupon}/${item.time}`}
+                  to={`/resDetailPage/${item.id}/${item.shopName}`}
                 >
                   <Card
                     key={item.id}
@@ -112,19 +112,13 @@ export default function HomeSale() {
                         <Typography variant="body2" color="text.secondary">
                           {item.description}
                         </Typography>
-                        <Typography variant="body3">
-                          <div>
-                            <StarIcon style={{ color: "yellow" }} />
-                            {item.rating}
-                          </div>
-                          <div className="Icon">
-                            <AccessTimeIcon />
-                            {item.time}
-                          </div>
-                          <div className="Icon">
-                            <GpsFixedIcon />
-                            {item.distance}
-                          </div>
+                        <Typography marginTop="15px" variant="body3">
+                          <i className="fa-solid fa-star"></i>&ensp;
+                          {item.rating}&ensp;&ensp;
+                          <i className="fa-regular fa-clock"></i>&ensp;
+                          {item.time}&ensp;&ensp;
+                          <i className="fa-solid fa-map-pin"></i>&ensp;
+                          {item.distance}
                         </Typography>
                       </CardContent>
                     </CardActionArea>

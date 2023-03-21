@@ -6,15 +6,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
-import StarIcon from "@mui/icons-material/Star";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import FormControl from "@mui/material/FormControl";
-import GpsFixedIcon from "@mui/icons-material/GpsFixed";
 import InputAdornment from "@mui/material/InputAdornment";
 import FilledInput from "@mui/material/FilledInput";
 import SearchIcon from "@mui/icons-material/Search";
 import { useParams } from "react-router-dom";
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Box from "@mui/material/Box";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
@@ -36,11 +33,11 @@ export default function CategoryPage() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearchName = (e) => {
-    setSearchTerm(e.target.value)
+    setSearchTerm(e.target.value);
+  };
+  function handleClick(event) {
+    event.preventDefault();
   }
-function handleClick(event) {
-  event.preventDefault();
-}
   return (
     <div className="Category-Container">
       <div className="Category-body">
@@ -54,85 +51,95 @@ function handleClick(event) {
             id="filled-adornment-amount"
             startAdornment={
               <InputAdornment position="start">
-                <SearchIcon style={{ width: "32px", height: "32px" }} />
+                <SearchIcon
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    marginBottom: "15px",
+                  }}
+                />
               </InputAdornment>
-
             }
-            sx={{ fontSize: "25px" }}
+            sx={{ fontSize: "2rem" }}
             value={searchTerm}
             onChange={handleSearchName}
-            placeholder="Tìm kiếm nhà hàng tại đây"
+            placeholder="Tìm kiếm món ăn hoặc quán ăn tại đây"
           />
-
         </FormControl>
-    
-          <Box className="Category-link">
-            <div role="presentation" onClick={handleClick}>
-              <Breadcrumbs
-                aria-label="breadcrumb"   
-                fontSize="2rem"
-                separator={<NavigateNextIcon/>}
+
+        <Box className="Category-link">
+          <div role="presentation" onClick={handleClick}>
+            <Breadcrumbs
+              aria-label="breadcrumb"
+              fontSize="2rem"
+              separator={<NavigateNextIcon />}
+            >
+              <Link className="link trangchu-link" underline="hover" to="/">
+                Trang chủ
+              </Link>
+
+              <Link
+                className="link nhaHang-link"
+                sx={{ color: "green" }}
+                href="/homeSalePage"
               >
-                <Link className="link trangchu-link" underline="hover" to='/'>
-                  Trang chủ
-                </Link> 
-                
-                <Link 
-                 className="link nhaHang-link"
-                  sx={{ color: "green" }}
-                  href="/homeSalePage"
-                >
-                  Nhà hàng
-                </Link>
-              </Breadcrumbs>
-            </div>
-          </Box>
+                Nhà hàng
+              </Link>
+            </Breadcrumbs>
+          </div>
+        </Box>
         <div className="Category-Title">
           <h1>
             Quán ăn tại <span>Hồ Chí Minh</span>
           </h1>
         </div>
         <div className="Category-content">
-          {data.filter((restaurant) => restaurant.category === cateName && restaurant.shopName.toLowerCase().includes(searchTerm.toLowerCase()))
+          {data
+            .filter(
+              (restaurant) =>
+                restaurant.category === cateName &&
+                restaurant.shopName
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase())
+            )
             .map((restaurant) => {
               return (
                 <Link
-                  to={`/resDetailPage/${restaurant.id}/${restaurant.shopName}/${restaurant.rating}/${restaurant.distance}/${restaurant.description}/${restaurant.coupon}/${restaurant.time}`}
+                  style={{ textDecoration: "none" }}
+                  to={`/resDetailPage/${restaurant.id}/${restaurant.shopName}`}
                 >
-                <Card className="HomeSale-Card" height="350px">
-                  <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      height="250"
-                      image={restaurant.menu[0].img}
-                      alt="green iguana"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h3" component="div">
-                        {restaurant.shopName}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {restaurant.description}
-                      </Typography>
-                      <Typography variant="body3">
-                        <div>
-                          <StarIcon style={{ color: "yellow" }} />
-                          {restaurant.rating}
-                        </div>
-                        <div className="Icon">
-                          <AccessTimeIcon />
-                          {restaurant.time}
-                        </div>
-                        <div className="Icon">
-                          <GpsFixedIcon />
+                  <Card className="HomeSale-Card" height="350px">
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        height="250"
+                        image={restaurant.menu[0].img}
+                        alt="green iguana"
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h3" component="div">
+                          {restaurant.shopName}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {restaurant.description}
+                        </Typography>
+                        <Typography
+                          marginTop="15px"
+                          fontSize="1.4rem"
+                          variant="body3"
+                        >
+                          <i className="fa-solid fa-star"></i>&ensp;
+                          {restaurant.rating}&ensp;&ensp;
+                          <i className="fa-regular fa-clock"></i>&ensp;
+                          {restaurant.time}&ensp;&ensp;
+                          <i className="fa-solid fa-map-pin"></i>&ensp;
                           {restaurant.distance}
-                        </div>
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                </Card>
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
                 </Link>
-              )
+              );
             })}
         </div>
       </div>
