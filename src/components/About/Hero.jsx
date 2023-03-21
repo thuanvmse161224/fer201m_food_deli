@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { green } from '@mui/material/colors';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink} from 'react-router-dom';
 import hero from '/About/Hero.jpg'
 
 export default function Hero() {
@@ -53,6 +53,8 @@ export default function Hero() {
                 <br />
                 <Button
                     variant="contained"
+                    component={RouterLink}
+                    to='/'
                     sx={{
                         background: "#11a511",
                         fontSize: "12px",
