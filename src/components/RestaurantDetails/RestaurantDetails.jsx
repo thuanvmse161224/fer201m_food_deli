@@ -174,7 +174,7 @@ export default function RestaurantDetails() {
             color="textSecondary"
           >
             <i className="fa-solid fa-tags"></i>
-            &ensp;{shop.coupon}
+            &ensp;{shop.coupon?shop.coupon:"Shop không có coupon"}
           </Typography>
         </Container>
 

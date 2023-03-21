@@ -20,6 +20,7 @@ import CartItem from "./CartItem";
 import { Typography } from "@mui/material";
 
 import { useSelector, useDispatch } from "react-redux"
+import { Link } from "react-router-dom";
 
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
@@ -230,7 +231,13 @@ export default function ViewCart({ open, handleClose }) {
                                                         border: 'none',
 
                                                     }} variant="contained" size="large">
-                                                    Đăng nhập để đặt đơn
+                                                    <Link 
+                                                        to='/loginPage' 
+                                                        style={{ textDecoration: 'none', color: "white" }}
+                                                        onClick={handleClose}
+                                                        >
+                                                        Đăng nhập để đặt đơn
+                                                    </Link>
                                                 </Button>
                                             </Box>
                                         </div>)}
