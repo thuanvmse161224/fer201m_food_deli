@@ -11,6 +11,7 @@ import CategoryPage from "./components/CategoriesPage/CategoryPage";
 import HeaderFixed from "./components/Header/HeaderFixed";
 import HomeMenu from "./components/HomeMenu/HomeMenu";
 import LoginPage from "./components/LoginPage/LoginPage";
+import About from "./components/About/About";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -44,10 +45,15 @@ function App() {
         {/* Thay đổi element tùy ý */}
 
         <Route
-          path="/resDetailPage/:id/:shopName/:rate/:dist/:desc/:coup/:time"
+          path="/resDetailPage/:id/:shopName/"
+          element={<RestaurantDetails />}
+        />
+        <Route
+          path="/resDetailPage/:id/"
           element={<RestaurantDetails />}
         />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
         <Route path="/catePage/:cateName" element={<CategoryPage />} />
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />

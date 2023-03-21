@@ -1,5 +1,5 @@
 // import * as React from "react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../RestaurantDetails/RestaurantDetails.scss";
 import {
   Container,
@@ -17,9 +17,21 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import FoodCard from "./FoodCard";
 import FoodCardSale from "./FoodCardSale";
+import axios from "axios";
 
 export default function RestaurantDetails() {
-  let { shopName, desc, dist, rate, time, coup } = useParams();
+  let { id } = useParams();
+  const [shop, setShop] = useState([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/restaurants/" + id)
+      .then((response) => {
+        setShop(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
   const RenderBreadcrumbs = () => {
     const handleClick = (event) => {
       event.preventDefault();
@@ -43,7 +55,7 @@ export default function RestaurantDetails() {
                 to="#"
                 aria-current="page"
               >
-                {shopName}
+                {shop.shopName}
               </Link>
             </Breadcrumbs>
           </div>
@@ -89,7 +101,7 @@ export default function RestaurantDetails() {
                 </Typography>
                 <div className="card-food">
                   <Grid container spacing={3}>
-                    <FoodCardSale />
+                    <FoodCardSale restaurant={shop} />
                   </Grid>
                 </div>
               </TabPanel>
@@ -103,7 +115,7 @@ export default function RestaurantDetails() {
                   Menu
                 </Typography>
                 <div className="card-food">
-                  <FoodCard />
+                  <FoodCard restaurant={shop}/>
                 </div>
               </TabPanel>
             </Container>
@@ -127,7 +139,7 @@ export default function RestaurantDetails() {
             variant="h1"
             gutterBottom
           >
-            {shopName}
+            {shop.shopName}
           </Typography>
           <Typography
             fontSize="1.8rem"
@@ -138,7 +150,7 @@ export default function RestaurantDetails() {
             variant="body2"
             color="textSecondary"
           >
-            {desc}
+            {shop.description}
           </Typography>
           <Typography
             fontSize="1.6rem"
@@ -148,9 +160,9 @@ export default function RestaurantDetails() {
             variant="body2"
             color="textSecondary"
           >
-            <i className="fa-solid fa-star"></i>&ensp;{rate} &ensp;&ensp;
-            <i className="fa-regular fa-clock"></i>&ensp;{time} &ensp;&ensp;
-            <i className="fa-solid fa-map-pin"></i>&ensp;{dist}
+            <i className="fa-solid fa-star"></i>&ensp;{shop.rating} &ensp;&ensp;
+            <i className="fa-regular fa-clock"></i>&ensp;{shop.time} &ensp;&ensp;
+            <i className="fa-solid fa-map-pin"></i>&ensp;{shop.distance}
           </Typography>
           <Typography
             fontSize="1.5rem"
@@ -162,7 +174,7 @@ export default function RestaurantDetails() {
             color="textSecondary"
           >
             <i className="fa-solid fa-tags"></i>
-            &ensp;{coup}
+            &ensp;{shop.coupon}
           </Typography>
         </Container>
 

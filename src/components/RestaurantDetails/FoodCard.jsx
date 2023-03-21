@@ -13,25 +13,12 @@ import IconButton from "@mui/material/IconButton";
 import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
 import { useParams } from "react-router-dom";
 
-const FoodCard = () => {
-  const [data, setData] = useState([]);
-  const { id } = useParams();
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/restaurants/" + id)
-      .then((response) => {
-        setData(response.data.menu);
-        console.log(response.data.menu);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+const FoodCard = ({restaurant}) => {
 
   return (
     <>
       <Grid container spacing={3}>
-        {data.map((item) => {
+        {restaurant.menu.map((item) => {
           return (
             <Grid item xs={12} sm={6} md={4} key={item.foodID}>
               <Box minHeight="100px">
@@ -63,8 +50,7 @@ const FoodCard = () => {
                       component="div"
                       sx={{ display: "contents" }}
                     >
-                      {item.price} VND
-                      <Tooltip title="Thêm vào giỏ hàng">
+                      {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)}                      <Tooltip title="Thêm vào giỏ hàng">
                         <IconButton
                           size="large"
                           sx={{
