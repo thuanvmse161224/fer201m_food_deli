@@ -95,7 +95,14 @@ export default function AllPromotions() {
         </div>
         {/* restaurant below */}
         <div className="Category-content">
-          {data.map((restaurant) => {
+          {data
+          .filter(
+              (restaurant) =>
+                restaurant.shopName
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase())
+            )
+          .map((restaurant) => {
             if (restaurant.coupon) {
               return (
                 <Link
