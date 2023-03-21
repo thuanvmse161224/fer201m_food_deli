@@ -3,24 +3,18 @@ import { useEffect } from 'react';
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Box, fontWeight, maxHeight, styled } from '@mui/system';
+import { Box, styled, textAlign } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import Fade from '@mui/material/Fade';
 import Button from '@mui/base/ButtonUnstyled';
 import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
-import InputUnstyled from '@mui/base/InputUnstyled';
-import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import CartItem from "./CartItem";
 import { Typography } from "@mui/material";
-
+import {Modal as PayoutModal} from "@mui/material";
 import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
+import { clearCart } from "../../redux/cartSlice";
 
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
@@ -73,8 +67,26 @@ const style = (theme) => ({
     overflow: 'auto',
 });
 
+const styleModal = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: '#3b8004',
+    boxShadow: 24,
+    p: 4,
+    color: 'white',
+    textAlign:'center',
+    fontSize: '3rem',
+    borderRadius: '20px',
+  };
+
 export default function ViewCart({ open, handleClose }) {
     const [isTop, setIsTop] = useState(true);
+    const [openPayModal, setOpenPayModal] = useState(false);
+    const handleOpen = () => setOpenPayModal(true);
+    const handleModalClose = () => setOpenPayModal(false);
 
     useEffect(() => {
         function handleScroll() {
@@ -95,13 +107,19 @@ export default function ViewCart({ open, handleClose }) {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-        useEffect(() => {
+    useEffect(() => {
         const storedIsLoggedIn = sessionStorage.getItem("google_user_name");
         if (storedIsLoggedIn) {
-          setIsLoggedIn(true);
+            setIsLoggedIn(true);
         }
-      }, []);
+    }, []);
 
+    const dispatch = useDispatch();
+    const handleClear = () => {
+        dispatch(clearCart());
+        setOpenPayModal(true);
+    }
+    
     return (
         <div className='view-cart-container' style={{ position: 'relative' }}>
             {/* <Button onClick={handleOpen}>Open modal</Button> */}
@@ -205,9 +223,27 @@ export default function ViewCart({ open, handleClose }) {
                                                     fontWeight: '600',
                                                     border: 'none',
 
-                                                }} variant="contained" size="large">
-                                               Thanh Toán 
+                                                }}
+                                                onClick={() => handleClear()}
+                                                variant="contained" size="large">
+                                                Thanh Toán
                                             </Button>
+                                            {/* Modal appear when payout */}
+                                            <PayoutModal
+                                                open={openPayModal}
+                                                onClose={handleModalClose}
+                                                aria-labelledby="modal-modal-title"
+                                                aria-describedby="modal-modal-description"
+                                            >
+                                                <Box sx={styleModal}>
+                                                    <Typography id="modal-modal-title" variant="h4" component="h2">
+                                                        Cám ơn bạn đã mua hàng!
+                                                    </Typography>
+                                                    <Typography id="modal-modal-description" variant="h6" sx={{ mt: 2 }}>
+                                                        Chúc quý khách ăn ngon miệng!!!
+                                                    </Typography>
+                                                </Box>
+                                            </PayoutModal>
                                         </Box>
                                     </div>)
                                         : (<div className="login-to-order bill-action-btn">
@@ -217,7 +253,7 @@ export default function ViewCart({ open, handleClose }) {
                                                     cursor: 'pointer',
                                                 },
                                             }}>
-                                                
+
                                                 <Button className="add-to-cart-btn"
                                                     style={{
                                                         width: '100%',
@@ -231,11 +267,11 @@ export default function ViewCart({ open, handleClose }) {
                                                         border: 'none',
 
                                                     }} variant="contained" size="large">
-                                                    <Link 
-                                                        to='/loginPage' 
+                                                    <Link
+                                                        to='/loginPage'
                                                         style={{ textDecoration: 'none', color: "white" }}
                                                         onClick={handleClose}
-                                                        >
+                                                    >
                                                         Đăng nhập để đặt đơn
                                                     </Link>
                                                 </Button>
