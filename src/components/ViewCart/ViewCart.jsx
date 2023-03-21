@@ -86,6 +86,13 @@ export default function ViewCart({ open, handleClose }) {
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+        useEffect(() => {
+        const storedIsLoggedIn = sessionStorage.getItem("google_user_name");
+        if (storedIsLoggedIn) {
+          setIsLoggedIn(true);
+        }
+      }, []);
+
     return (
         <div className='view-cart-container' style={{ position: 'relative' }}>
             {/* <Button onClick={handleOpen}>Open modal</Button> */}
@@ -190,7 +197,7 @@ export default function ViewCart({ open, handleClose }) {
                                                     border: 'none',
 
                                                 }} variant="contained" size="large">
-                                                Đăng nhập để đặt đơn
+                                               Thanh Toán 
                                             </Button>
                                         </Box>
                                     </div>)
@@ -201,6 +208,7 @@ export default function ViewCart({ open, handleClose }) {
                                                     cursor: 'pointer',
                                                 },
                                             }}>
+                                                
                                                 <Button className="add-to-cart-btn"
                                                     style={{
                                                         width: '100%',
@@ -214,7 +222,7 @@ export default function ViewCart({ open, handleClose }) {
                                                         border: 'none',
 
                                                     }} variant="contained" size="large">
-                                                    Thanh Toán
+                                                    Đăng nhập để đặt đơn
                                                 </Button>
                                             </Box>
                                         </div>)}
