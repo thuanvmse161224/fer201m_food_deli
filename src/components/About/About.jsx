@@ -8,7 +8,8 @@ export default function About() {
     return (<>
         <Hero />
         <Introduction />
-        <Fab 
+        {/**
+         *         <Fab 
             color="primary" 
             variant="extended" 
             aria-label='add'
@@ -22,5 +23,6 @@ export default function About() {
             <PersonAddIcon sx={{ mr: 1 }} />
             Trở thành đối tác
         </Fab>
+         */}
     </>)
 }

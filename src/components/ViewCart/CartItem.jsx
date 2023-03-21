@@ -9,7 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
 import { useDispatch } from "react-redux"
-import { increaseQuantity, decreaseQuantity } from '../../redux/cartSlice';
+import { increaseQuantity, decreaseQuantity,clearItem} from '../../redux/cartSlice';
 
 export default function CartItem({item}) {
 
@@ -23,7 +23,9 @@ export default function CartItem({item}) {
     const DecrementQuan = (foodID) => {
         dispatch(decreaseQuantity(foodID))
     };
-
+    const RemoveItem = (foodID) => {
+        dispatch(clearItem(foodID))
+    };
     const StyledTextField = styled(TextField)({
         '& .MuiInputBase-input': {
             fontSize: '1.4rem', // Adjust font size as needed
@@ -114,7 +116,7 @@ export default function CartItem({item}) {
                 <div className="food-item-name">
                     {item.name}
                 </div>
-                {quantity > 0 ? (
+                {item.quantity > 0 ? (
                     <div className="food-item-price">
                         {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(item.price)}
                     </div>
@@ -126,7 +128,9 @@ export default function CartItem({item}) {
                         '&:hover': {
                             color: '#ee6352'
                         }
-                    }}>
+                    }}
+                    onClick={ () =>RemoveItem(item.foodID)}
+                    >
                         Remove
                     </a>
                 )}

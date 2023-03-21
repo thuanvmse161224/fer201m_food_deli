@@ -36,9 +36,9 @@ export default function HeaderFixed() {
             <Box sx={{ flexGrow: 1, position: 'relative' }}>
                 <AppBar className="header-fixed-box" sx={{ backgroundColor: isTop ? 'transparent' : 'white' }} elevation={1}>
                     <Toolbar sx={{ height: '88px' }}>
-                        <a href="#">
+                        <Link to="/">
                             <img className="page-logo" src={pageLogo} alt="FptFood" />
-                        </a>
+                        </Link>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
                         {/* <Link style={{ textDecoration: 'none' }} to={`/viewCart`}> */}
                         <Button className='header-fixed-btn' color="inherit" onClick={handleOpenCart}
