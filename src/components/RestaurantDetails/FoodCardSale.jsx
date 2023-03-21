@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import {
   Box,
   Typography,
@@ -11,26 +9,11 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 // Import cartSlice
 import { useDispatch } from 'react-redux'
 import { addItem } from "../../redux/cartSlice";
-const FoodCardSale = () => {
-  const [data, setData] = useState([]);
-  const { id } = useParams();
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/restaurants/" + id)
-      .then((response) => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
-
+const FoodCardSale = ({restaurant}) => {
   const dispatch = useDispatch();
 
   // Ham xu ly redux
@@ -41,7 +24,7 @@ const FoodCardSale = () => {
       dispatch(addItem({
         foodID: item.foodID,
         img: item.img,
-        shopName: data.shopName,
+        shopName: restaurant.shopName,
         name: item.name,
         price: item.price,
         quantity: quantity
@@ -51,9 +34,9 @@ const FoodCardSale = () => {
       console.error('Invalid item:', item);
     }
   }
-  return data.coupon ? (
-    data.menu.map((res) => (
-      <Grid item xs={12} sm={6} md={4} key={res.foodID}>
+  return restaurant.coupon ? (
+    restaurant.menu.map((foodItem) => (
+      <Grid item xs={12} sm={6} md={4} key={foodItem.foodID}>
         <Box minHeight="100px">
           <Card sx={{ display: "flex", width: "100%", height: "180px" }}>
             <CardMedia
@@ -64,7 +47,7 @@ const FoodCardSale = () => {
                 margin: 2,
                 borderRadius: 2,
               }}
-              image={res.img}
+              image={foodItem.img}
               alt=""
             />
             <CardContent sx={{ flex: "1 0 auto" }}>
@@ -74,7 +57,7 @@ const FoodCardSale = () => {
                 variant="body1"
                 sx={{ width: "90%", paddingBottom: "30px" }}
               >
-                {res.name}
+                {foodItem.name}
               </Typography>
               <Typography
                 fontSize="1.4rem"
@@ -83,7 +66,7 @@ const FoodCardSale = () => {
                 component="div"
                 sx={{ display: "contents" }}
               >
-                {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(res.price)}
+                {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(foodItem.price)}
                 <Tooltip title="Thêm vào giỏ hàng">
                   {/* <Link to={}/> */}
                   <IconButton
@@ -94,7 +77,7 @@ const FoodCardSale = () => {
                       fontSize: "3rem",
 
                     }}
-                    onClick={() => handleAddToCart(res)}
+                    onClick={() => handleAddToCart(foodItem)}
                   >
                     <AddBoxRoundedIcon fontSize="inherit" />
                   </IconButton>
