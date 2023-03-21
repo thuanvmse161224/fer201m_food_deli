@@ -1,4 +1,5 @@
 import "../ViewCart/ViewCart.scss";
+import { useEffect } from 'react';
 
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -18,8 +19,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import CartItem from "./CartItem";
 import { Typography } from "@mui/material";
 
-import cafe from '/Cart/imgs/cafeSua.png';
-import miQuangTomThit from '/Cart/imgs/MyQuangTomThit.png';
+import { useSelector, useDispatch } from "react-redux"
 
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
@@ -72,14 +72,31 @@ const style = (theme) => ({
     overflow: 'auto',
 });
 
-export default function ViewCart() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+export default function ViewCart({ open, handleClose }) {
+    const [isTop, setIsTop] = useState(true);
+
+    useEffect(() => {
+        function handleScroll() {
+            setIsTop(window.scrollY === 0);
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    //check
+    const items = useSelector((state) => state.cart.items);
+
+    const total = useSelector(state => state.cart.total);
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return (
         <div className='view-cart-container' style={{ position: 'relative' }}>
-            <Button onClick={handleOpen}>Open modal</Button>
+            {/* <Button onClick={handleOpen}>Open modal</Button> */}
             <Modal sx={{
             }}
                 aria-labelledby="transition-modal-title"
@@ -92,12 +109,12 @@ export default function ViewCart() {
                 <Fade in={open}>
 
                     <Box className="cart-model-box" sx={style}>
-                        <div className="box-pos-rel" style={{ position: 'relative', width: '100%'}}>
+                        <div className="box-pos-rel" style={{ position: 'relative', width: '100%' }}>
                             <div className="modal-header" style={{
                                 padding: '24px 0',
                                 color: '#676767',
                                 display: 'flex',
-                                alignItems: 'center',                                
+                                alignItems: 'center',
                             }}>
                                 <i onClick={handleClose}
                                     style={{
@@ -121,24 +138,15 @@ export default function ViewCart() {
 
                             <div className="modal-content" style={{ padding: '24px 0' }}>
                                 <div className="food-container" style={{}}>
-                                    <div className="food-shop-title" style={{
-                                        fontSize: '2rem',
-                                        fontWeight: '500',
-                                    }}>
-                                        Mỳ Quảng Bà Minh
-                                    </div>
-
                                     <div className="food-content" style={{
                                         // padding: '24px 0',
                                         overflow: 'auto',
                                     }}>
-                                        <div className="food-list" style={{marginBottom: '200px', minHeight: '49vh'}}>
-                                            <CartItem />
-                                            
-                    
-                                            
-                                         
-                                            
+
+                                        <div className="food-list" style={{ marginBottom: '200px', minHeight: '49vh' }}>
+                                            {items.map((item) => (
+                                                <CartItem item={item} />
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
@@ -165,12 +173,12 @@ export default function ViewCart() {
                                 }}>
                                     <span>Tổng Cộng</span>
                                     <div className="total-bill-val" style={{ fontWeight: '600' }}>
-                                        51.000đ
+                                        {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(total)}
                                     </div>
                                 </div>
 
                                 <div className="bill-actions">
-                                    <div className="login-to-order bill-action-btn">
+                                    {isLoggedIn ? (<div className="login-to-order bill-action-btn">
                                         <Box sx={{
                                             '& button': { m: 1 }, '&:hover': {
                                                 filter: 'brightness(1.2)',
@@ -193,11 +201,57 @@ export default function ViewCart() {
                                                 Đăng nhập để đặt đơn
                                             </Button>
                                         </Box>
-                                    </div>
-                                    {/* 
-                                    <div className="pay-now bill-action-btn">
+                                    </div>)
+                                        : (<div className="login-to-order bill-action-btn">
+                                            <Box sx={{
+                                                '& button': { m: 1 }, '&:hover': {
+                                                    filter: 'brightness(1.2)',
+                                                    cursor: 'pointer',
+                                                },
+                                            }}>
+                                                <Button className="add-to-cart-btn"
+                                                    style={{
+                                                        width: '100%',
+                                                        margin: '0 !important',
+                                                        height: '50px',
+                                                        borderRadius: '10px',
+                                                        backgroundColor: '#1ebd60',
+                                                        color: 'white',
+                                                        fontSize: '1.8rem',
+                                                        fontWeight: '600',
+                                                        border: 'none',
 
-                                    </div> */}
+                                                    }} variant="contained" size="large">
+                                                    Thanh Toán
+                                                </Button>
+                                            </Box>
+                                        </div>)}
+
+                                    {/* 
+                            <div className="pay-now bill-action-btn">
+                                        <Box sx={{
+                                    '& button': { m: 1 }, '&:hover': {
+                                        filter: 'brightness(1.2)',
+                                        cursor: 'pointer',
+                                    },
+                                }}>
+                                    <Button className="add-to-cart-btn"
+                                        style={{
+                                            width: '100%',
+                                            margin: '0 !important',
+                                            height: '50px',
+                                            borderRadius: '10px',
+                                            backgroundColor: '#1ebd60',
+                                            color: 'white',
+                                            fontSize: '1.8rem',
+                                            fontWeight: '600',
+                                            border: 'none',
+
+                                        }} variant="contained" size="large">
+                                        Thanh Toán
+                                    </Button>
+                                </Box>
+                            </div> */}
                                 </div>
 
                             </div>

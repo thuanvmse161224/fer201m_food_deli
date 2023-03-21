@@ -52,6 +52,7 @@
           "description": "",
           "price": 5000
         }
+
       ]
     },
     {
@@ -106,6 +107,7 @@
           "description": "",
           "price": 15000
         }
+
       ]
     },
     {
@@ -160,6 +162,7 @@
           "description": "",
           "price": 15000
         }
+
       ]
     },
     {
@@ -214,6 +217,7 @@
           "description": "",
           "price": 15000
         }
+
       ]
     },
     {
@@ -268,6 +272,7 @@
           "description": "",
           "price": 15000
         }
+
       ]
     },
     {
@@ -299,7 +304,7 @@
           "name": " Combo Chân Gà 3 Món (Xả Tắc/Sốt Thái/Ủ Muối)",
           "img": "https://drive.google.com/uc?id=1fqDqS-zQ4H1KTaMgR679NTFTvuLy1SsO",
           "description": "Mỗi Loại 1 Gói + Mã Giảm Giá 70k Ạ !",
-          "price": 235.500
+          "price": 235500
         },
         {
           "foodID": "4",
@@ -322,6 +327,7 @@
           "description": "",
           "price": 15000
         }
+
       ]
     },
     {
@@ -376,6 +382,7 @@
           "description": "",
           "price": 15000
         }
+
       ]
     },
     {
@@ -430,6 +437,7 @@
           "description": "",
           "price": 55000
         }
+
       ]
     },
     {
@@ -484,6 +492,7 @@
           "description": "",
           "price": 16000
         }
+
       ]
     },
     {
@@ -538,6 +547,7 @@
           "description": "",
           "price": 15000
         }
+
       ]
     },
     {
@@ -592,6 +602,7 @@
           "description": "",
           "price": 30000
         }
+
       ]
     },
     {
@@ -646,6 +657,7 @@
           "description": "",
           "price": 30000
         }
+
       ]
     },
     {
@@ -714,6 +726,7 @@
           "description": "",
           "price": 20000
         }
+
       ]
     },
     {
@@ -775,6 +788,7 @@
           "description": "",
           "price": 20000
         }
+
       ]
     },
     {
@@ -836,6 +850,7 @@
           "description": "",
           "price": 20000
         }
+
       ]
     },
     {
@@ -904,6 +919,7 @@
           "description": "",
           "price": 20000
         }
+
       ]
     },
     {
@@ -1041,7 +1057,7 @@
           "name": "Bánh mì que Hải Phòng - 1 cái",
           "img": "https://drive.google.com/uc?id=1VFhSYbUL3-j8KFEgtYgddhG5nlG0ctKO",
           "description": "",
-          "price": 5.500
+          "price": 5500
         },
         {
           "foodID": "2",
