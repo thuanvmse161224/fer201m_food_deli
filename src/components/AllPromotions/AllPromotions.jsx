@@ -95,13 +95,11 @@ export default function AllPromotions() {
         </div>
         {/* restaurant below */}
         <div className="Category-content">
-          {/* {data.filter((restaurant) => restaurant.category === cateName && restaurant.shopName.toLowerCase().includes(searchTerm.toLowerCase()))
-            .map((restaurant) => { */}
           {data.map((restaurant) => {
             if (restaurant.coupon) {
               return (
                 <Link
-                  to={`/resDetailPage/${restaurant.id}/${restaurant.shopName}/${restaurant.rating}/${restaurant.distance}/${restaurant.description}/${restaurant.coupon}/${restaurant.time}`}
+                  to={`/resDetailPage/${restaurant.id}/${restaurant.shopName}`}
                 >
                   <Card className="HomeSale-Card" height="350px">
                     <CardActionArea>
