@@ -20,6 +20,7 @@ import CartItem from "./CartItem";
 import { Typography } from "@mui/material";
 
 import { useSelector, useDispatch } from "react-redux"
+import { Link } from "react-router-dom";
 
 
 const BackdropUnstyled = React.forwardRef((props, ref) => {
@@ -93,6 +94,13 @@ export default function ViewCart({ open, handleClose }) {
     const total = useSelector(state => state.cart.total);
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+        useEffect(() => {
+        const storedIsLoggedIn = sessionStorage.getItem("google_user_name");
+        if (storedIsLoggedIn) {
+          setIsLoggedIn(true);
+        }
+      }, []);
 
     return (
         <div className='view-cart-container' style={{ position: 'relative' }}>
@@ -198,7 +206,7 @@ export default function ViewCart({ open, handleClose }) {
                                                     border: 'none',
 
                                                 }} variant="contained" size="large">
-                                                Đăng nhập để đặt đơn
+                                               Thanh Toán 
                                             </Button>
                                         </Box>
                                     </div>)
@@ -209,6 +217,7 @@ export default function ViewCart({ open, handleClose }) {
                                                     cursor: 'pointer',
                                                 },
                                             }}>
+                                                
                                                 <Button className="add-to-cart-btn"
                                                     style={{
                                                         width: '100%',
@@ -222,7 +231,13 @@ export default function ViewCart({ open, handleClose }) {
                                                         border: 'none',
 
                                                     }} variant="contained" size="large">
-                                                    Thanh Toán
+                                                    <Link 
+                                                        to='/loginPage' 
+                                                        style={{ textDecoration: 'none', color: "white" }}
+                                                        onClick={handleClose}
+                                                        >
+                                                        Đăng nhập để đặt đơn
+                                                    </Link>
                                                 </Button>
                                             </Box>
                                         </div>)}

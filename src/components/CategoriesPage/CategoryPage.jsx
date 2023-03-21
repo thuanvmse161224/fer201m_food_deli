@@ -106,7 +106,7 @@ export default function CategoryPage() {
               return (
                 <Link
                   style={{ textDecoration: "none" }}
-                  to={`/resDetailPage/${restaurant.id}/${restaurant.shopName}/${restaurant.rating}/${restaurant.distance}/${restaurant.description}/${restaurant.coupon}/${restaurant.time}`}
+                  to={`/resDetailPage/${restaurant.id}/${restaurant.shopName}`}
                 >
                   <Card className="HomeSale-Card" height="350px">
                     <CardActionArea>
