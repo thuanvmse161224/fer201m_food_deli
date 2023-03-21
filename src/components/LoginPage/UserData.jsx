@@ -22,6 +22,7 @@ function UserData() {
     sessionStorage.getItem("google_user_name")
   );
   const userAva = sessionStorage.getItem("google_user_ava");
+  const [admin, setAdmin] = useState(sessionStorage.getItem("user_name"));
 
   const onFailure = (response) => {
     console.log(response);
@@ -46,7 +47,7 @@ function UserData() {
 
   return (
     <>
-      {userName ? (
+      {userName || admin ? (
         <>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="User">
@@ -73,7 +74,7 @@ function UserData() {
             onClose={handleCloseUserMenu}
           >
             <MenuItem onClick={handleCloseUserMenu}>
-              <Typography textAlign="center">{userName}</Typography>
+              <Typography textAlign="center">{userName || admin}</Typography>
             </MenuItem>
             <MenuItem onClick={handleCloseUserMenu}>
               <GoogleLogout
@@ -94,7 +95,7 @@ function UserData() {
           </Menu>
         </>
       ) : (
-        <Link to="/loginPage">
+        <Link style={{ textDecoration: "none" }} to="/loginPage">
           <Button
             className="header-fixed-btn"
             sx={{
@@ -102,6 +103,7 @@ function UserData() {
               fontSize: "1.2rem",
               fontWeight: "500",
               textTransform: "none",
+              textDecoration: "none",
             }}
           >
             Đăng nhập

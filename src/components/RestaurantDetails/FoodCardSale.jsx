@@ -14,7 +14,7 @@ import AddBoxRoundedIcon from "@mui/icons-material/AddBoxRounded";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 // Import cartSlice
-import { useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/cartSlice";
 const FoodCardSale = () => {
   const [data, setData] = useState([]);
@@ -38,19 +38,21 @@ const FoodCardSale = () => {
     console.log(item.foodID);
     if (item && item.foodID) {
       const quantity = 1;
-      dispatch(addItem({
-        foodID: item.foodID,
-        img: item.img,
-        shopName: data.shopName,
-        name: item.name,
-        price: item.price,
-        quantity: quantity
-      }));
+      dispatch(
+        addItem({
+          foodID: item.foodID,
+          img: item.img,
+          shopName: data.shopName,
+          name: item.name,
+          price: item.price,
+          quantity: quantity,
+        })
+      );
       console.log("da nhan dispatch");
     } else {
-      console.error('Invalid item:', item);
+      console.error("Invalid item:", item);
     }
-  }
+  };
   return data.coupon ? (
     data.menu.map((res) => (
       <Grid item xs={12} sm={6} md={4} key={res.foodID}>
@@ -67,7 +69,7 @@ const FoodCardSale = () => {
               image={res.img}
               alt=""
             />
-            <CardContent sx={{ flex: "1 0 auto" }}>
+            <CardContent sx={{ flex: "1 0 auto", width: "60%" }}>
               <Typography
                 fontSize="1.6rem"
                 component="h6"
@@ -83,7 +85,10 @@ const FoodCardSale = () => {
                 component="div"
                 sx={{ display: "contents" }}
               >
-                {new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(res.price)}
+                {new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                }).format(res.price)}
                 <Tooltip title="Thêm vào giỏ hàng">
                   {/* <Link to={}/> */}
                   <IconButton
@@ -92,7 +97,6 @@ const FoodCardSale = () => {
                       marginLeft: 5,
                       color: "green",
                       fontSize: "3rem",
-
                     }}
                     onClick={() => handleAddToCart(res)}
                   >
@@ -109,7 +113,8 @@ const FoodCardSale = () => {
   ) : (
     <h3>
       {" "}
-      Hôm nay không có khuyến mãi ! <i className="fa-regular fa-face-sad-cry"></i>
+      Hôm nay không có khuyến mãi !{" "}
+      <i className="fa-regular fa-face-sad-cry"></i>
     </h3>
   );
 };
