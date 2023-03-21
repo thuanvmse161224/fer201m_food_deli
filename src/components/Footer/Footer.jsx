@@ -22,12 +22,12 @@ export default function Footer() {
 
                 <div className="footer-navigations">
                     <div className="navigation-block">
-                        <a href="/about" className="nav-links">
+                        <Link to='/about' className="nav-links">
                             Về FptFood
-                        </a>
-                        <a href="/contact" className="nav-links">
-                            Về FPT
-                        </a>
+                        </Link>
+                        <Link to='/contact' className="nav-links">
+                            Liên hệ chúng tôi
+                        </Link>
                         <a href="#" className="nav-links">
                             Blog
                         </a>
@@ -41,13 +41,13 @@ export default function Footer() {
                         </a>
                     </div>
                     <div className="navigation-block">
-                        <a href="#" className="links-social-media">
+                        <a href="https://www.facebook.com/" className="links-social-media">
                             <img src={fbIcon} alt="fbIcon" className="icon" />
                         </a>
-                        <a href="#" className="links-social-media">
+                        <a href="https://instagram.com" className="links-social-media">
                             <img src={instaIcon} alt="instaIcon" className="icon" />
                         </a>
-                        <a href="#" className="links-social-media">
+                        <a href="https://twitter.com" className="links-social-media">
                             <img src={twitterIcon} alt="twitterIcon" className="icon" />
                         </a>
                     </div>
