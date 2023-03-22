@@ -18,9 +18,11 @@ import { useParams } from "react-router-dom";
 import FoodCard from "./FoodCard";
 import FoodCardSale from "./FoodCardSale";
 import axios from "axios";
+import useDocumentTitle from '../../helpers/useDocumentTitle';
+
 
 export default function RestaurantDetails() {
-  let { id } = useParams();
+  let { id, shopName } = useParams();
   const [shop, setShop] = useState([]);
   useEffect(() => {
     axios
@@ -32,6 +34,8 @@ export default function RestaurantDetails() {
         console.error(error);
       });
   }, []);
+  useDocumentTitle(shopName + " : Thực đơn và Khuyến mãi");
+
   const RenderBreadcrumbs = () => {
     const handleClick = (event) => {
       event.preventDefault();

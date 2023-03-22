@@ -15,6 +15,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Box from "@mui/material/Box";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
+import useDocumentTitle from '../../helpers/useDocumentTitle';
 export default function CategoryPage() {
   const [data, setData] = useState([]);
 
@@ -29,6 +30,7 @@ export default function CategoryPage() {
       });
   }, []);
   const { cateName } = useParams();
+  useDocumentTitle("Món " + cateName);
 
   const [searchTerm, setSearchTerm] = useState("");
 

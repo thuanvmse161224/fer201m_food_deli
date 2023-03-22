@@ -40,9 +40,9 @@ export default function HeaderFixed() {
           elevation={1}
         >
           <Toolbar sx={{ height: "88px" }}>
-            <a href="/">
+            <Link to="/">
               <img className="page-logo" src={pageLogo} alt="FptFood" />
-            </a>
+            </Link>
             <Typography
               variant="h6"
               component="div"

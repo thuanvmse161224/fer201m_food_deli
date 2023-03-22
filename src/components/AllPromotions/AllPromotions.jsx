@@ -18,9 +18,11 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import Box from "@mui/material/Box";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
+import useDocumentTitle from '../../helpers/useDocumentTitle';
 
 export default function AllPromotions() {
   const [data, setData] = useState([]);
+  useDocumentTitle("All Promotions")
 
   useEffect(() => {
     axios

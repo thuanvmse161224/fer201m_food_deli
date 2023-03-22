@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import GoogleLoginButton from "./LoginGoogle";
 import { useNavigate } from "react-router-dom";
+import useDocumentTitle from '../../helpers/useDocumentTitle';
 
 function Copyright(props) {
   return (
@@ -38,6 +39,7 @@ export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessages, setErrorMessages] = useState({});
+  useDocumentTitle("Login Page")  
 
   const errors = {
     username: "Username không hợp lệ",

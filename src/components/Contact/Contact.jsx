@@ -2,8 +2,10 @@ import "../Contact/Contact.scss";
 import React from "react";
 import { Typography, Grid, Tooltip, IconButton } from "@mui/material";
 import ContactForm from "./ContactForm";
+import useDocumentTitle from '../../helpers/useDocumentTitle';
 
 const Contact = () => {
+  useDocumentTitle("Contact Us");
   const RenderInfo = () => {
     return (
       <>
