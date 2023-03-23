@@ -105,7 +105,7 @@ export default function HomeSale() {
                         image={item.menu[0].img}
                         alt="green iguana"
                       />
-                      <CardContent>
+                      <CardContent sx={{minHeight: "200px"}}>
                         <Typography gutterBottom variant="h4" component="div">
                           {item.shopName}
                         </Typography>
