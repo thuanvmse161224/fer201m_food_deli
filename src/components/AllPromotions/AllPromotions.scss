@@ -10,22 +10,23 @@
       }
     }
 
-    .Category-link {
+   
+    .Category-link{
       margin-top: 2rem;
       border-top: 2px solid;
       padding-top: 2rem;
-      .link {
+      .link{
         text-decoration: none;
       }
-      .nhaHang-link {
+      .nhaHang-link{
         color: green;
       }
-      .trangchu-link {
+      .trangchu-link{
         color: black;
       }
       .trangchu-link :hover {
-        color: black;
-        text-decoration: underline;
+        color: black; 
+        text-decoration: underline; 
       }
       .trangchu-link :visited {
         color: black;
@@ -47,6 +48,7 @@
       .HomeSale-Card {
         padding: 0 12px 24px;
       }
+      
       .MuiTypography-h3 {
         font-size: 18px;
         margin-bottom: 16px;
@@ -58,7 +60,12 @@
       }
       .MuiTypography-body3 {
         display: flex;
-
+        .Icon {
+          padding-left: 17px;
+          font-size: 14px;
+          // font-style: ;
+          color: rgba(0, 0, 0, 0.6);
+        }
         .fa-solid.fa-star {
           color: rgb(199, 152, 58);
         }
