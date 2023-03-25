@@ -225,7 +225,8 @@ export default function ViewCart({ open, handleClose }) {
 
                                                 }}
                                                 onClick={() => handleClear()}
-                                                variant="contained" size="large">
+                                                variant="contained" size="large"
+                                                disabled={total==0?true:false}>
                                                 Thanh Toán
                                             </Button>
                                             {/* Modal appear when payout */}
