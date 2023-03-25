@@ -15,11 +15,9 @@ import TabPanel from "@mui/lab/TabPanel";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import FoodCard from "./FoodCard";
 import FoodCardSale from "./FoodCardSale";
 import axios from "axios";
-import useDocumentTitle from '../../helpers/useDocumentTitle';
-
+import useDocumentTitle from "../../helpers/useDocumentTitle";
 
 export default function RestaurantDetails() {
   let { id, shopName } = useParams();
@@ -102,10 +100,17 @@ export default function RestaurantDetails() {
                   className="font-header"
                 >
                   Ưu đãi hôm nay
-                </Typography>
+</Typography>
                 <div className="card-food">
                   <Grid container spacing={3}>
-                    <FoodCardSale restaurant={shop} />
+                    {shop.coupon ? (
+                      <FoodCardSale restaurant={shop} />
+                    ) : (
+                      <h3>
+                        Hôm nay không có khuyến mãi{" "}
+                        <i className="fa-regular fa-face-sad-cry"></i>
+                      </h3>
+                    )}
                   </Grid>
                 </div>
               </TabPanel>
@@ -119,7 +124,7 @@ export default function RestaurantDetails() {
                   Menu
                 </Typography>
                 <div className="card-food">
-                  <FoodCard restaurant={shop}/>
+                  <FoodCardSale restaurant={shop} />
                 </div>
               </TabPanel>
             </Container>
@@ -165,7 +170,8 @@ export default function RestaurantDetails() {
             color="textSecondary"
           >
             <i className="fa-solid fa-star"></i>&ensp;{shop.rating} &ensp;&ensp;
-            <i className="fa-regular fa-clock"></i>&ensp;{shop.time} &ensp;&ensp;
+            <i className="fa-regular fa-clock"></i>&ensp;{shop.time}{" "}
+            &ensp;&ensp;
             <i className="fa-solid fa-map-pin"></i>&ensp;{shop.distance}
           </Typography>
           <Typography
@@ -178,7 +184,7 @@ export default function RestaurantDetails() {
             color="textSecondary"
           >
             <i className="fa-solid fa-tags"></i>
-            &ensp;{shop.coupon?shop.coupon:"Shop không có coupon"}
+            &ensp;{shop.coupon ? shop.coupon : "Shop không có coupon"}
           </Typography>
         </Container>
 
