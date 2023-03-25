@@ -178,7 +178,7 @@ export default function ViewCart({ open, handleClose }) {
                                 </div>
                             </div>
                             <div className="modal-footer" style={{
-                                position: 'absolute',
+                                //position: 'absolute',
                                 bottom: '0',
                                 width: 'calc(100% + 50px)',
                                 margin: '0 -24px',
